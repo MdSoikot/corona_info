@@ -25,7 +25,7 @@
                         <img src="{{ asset('template_assets/assets/images/avatar/avatar-s-1.png') }}" alt="" srcset="">
 
                     </div>
-                    <div class="d-none d-md-block d-lg-inline-block">{{Auth::user()->name}}</div>
+                    {{-- <div class="d-none d-md-block d-lg-inline-block">{{Auth::user()->name}}</div> --}}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="#"><i data-feather="user"></i> Profile</a>
