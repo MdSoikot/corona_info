@@ -17,10 +17,10 @@ body {
   grid-template-columns: 80% 20%;
 }
 .top_bar_content{
-  width: 100%;
+  width: 50%;
   margin: auto;
   display: grid;
-  grid-template-columns: 15% 15% 10% 20% 20% 20% 10%;
+  grid-template-columns: 15% 15% 10% 20% 10% 10% 20%;
 }
 .top_bar_content p:last-child{
   font-weight: bold;
@@ -28,18 +28,23 @@ body {
 
 .top_bar_content p:first-child{
   color: red;
+  font-weight: 500!important;
+
 }
 
 .top_bar p{
  margin-bottom: 10px!important;
 }
 .log_register{
-  margin-top: 20px;
+  margin-top: 8px;
+  text-align: right;
+  margin-right: 20px;
+
 
 }
 
 .log_register a{
-  padding: 10px;
+  padding: 8px;
   border-radius: 10px;
   color: #fff;
   background-color: #582fd7;
@@ -129,6 +134,107 @@ margin-top: 20px;
   /* background: red; */
 
 
+}
+
+/*--join-us--*/
+.register{
+  background: -webkit-linear-gradient(left, #110b63, #3d0853);
+  padding: 3%;
+}
+.register-left{
+  text-align: center;
+  color: #fff;
+  margin-top: 4%;
+}
+.register-left input{
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2%;
+  width: 60%;
+  background: #f8f9fa;
+  font-weight: bold;
+  color: #383d41;
+  margin-top: 30%;
+  margin-bottom: 3%;
+  cursor: pointer;
+}
+.register-right{
+  background: #fff;
+  border-top-left-radius: 10% 50%;
+  border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+  margin-top: 15%;
+  margin-bottom: 5%;
+  width: 25%;
+  -webkit-animation: mover 2s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+.register-left p{
+  font-weight: lighter;
+  padding: 12%;
+  margin-top: -9%;
+}
+.register .register-form{
+  padding: 10%;
+  margin-top: 10%;
+}
+.btnRegister{
+  float: right;
+  margin-top: 10%;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2%;
+  background: #0062cc;
+  color: #fff;
+  font-weight: 600;
+  width: 50%;
+  cursor: pointer;
+}
+.register .nav-tabs{
+  font-size: 13px;
+  margin-top: 3%;
+  border: none;
+  background: #0062cc;
+  border-radius: 1.5rem;
+  width: 70%;
+  margin: auto;
+}
+.register .nav-tabs .nav-link{
+  padding: 4%;
+  height: 34px;
+  font-weight: 600;
+  color: #fff;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+  border: none;
+}
+.register .nav-tabs .nav-link.active{
+  color: #0062cc;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: -15%;
+  color: #495057;
+}
+
+.register .form-control {
+  padding: 22px .75rem!important;
+  font-size: 14px!important;
+  border-radius: 12px!important;
 }
 /*--custom_css---*/
 
@@ -536,6 +642,7 @@ a:focus {
 .service_section .service_container .box .img-box {
   margin-top: 20px;
 }
+
 
 .service_section .service_container .box .img-box img {
   max-width: 50px;

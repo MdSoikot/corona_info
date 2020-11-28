@@ -45,3 +45,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user_homepage', function () {
     return view('users/homepage');
 });
+
+Route::get('/about', function () {
+    return view('users/about');
+});
+
+Route::get('/service', function () {
+    return view('users/service');
+});
+
+Route::get('/contact', function () {
+    return view('users/contact');
+});
+Route::get('/important_video', function () {
+    return view('users/important_video');
+});
+
+Route::get('/join_us', function () {
+    return view('users/join_us');
+});
