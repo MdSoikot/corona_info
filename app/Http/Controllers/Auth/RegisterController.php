@@ -32,6 +32,7 @@ class RegisterController extends Controller
 
     protected function redirectTo()
     {
+        // dd(auth()->user()->role);
         if (auth()->user()->role=='admin'||auth()->user()->role=='backend_user')  {
             return '/';
         }
@@ -77,14 +78,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // dd($data);
+        if ($data['role']=='admin'||$data['role']=='backend_user')  {
         return User::create([
             'name' => $data['name'],
             'role' => $data['role'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'mobile' => $data['mobile'],
 
         ]);
+        }else{
+            return User::create([
+                'name' => $data['name'],
+                'role' => $data['role'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'mobile' => $data['mobile'],
+            ]);
+        }
     }
 }

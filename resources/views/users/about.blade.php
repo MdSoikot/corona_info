@@ -46,18 +46,18 @@
                                   <a class="nav-link dropdown-toggle" href="#" href="#" id="navbarDropdownMenuLink"
                                       data-toggle="dropdown" aria-haspopup="true"
                                       aria-expanded="false">{{ Auth::user()->name }}</a>
-                                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" data-toggle="modal" data-target="#exampleModalLong">
-                                      <a class="dropdown-item" href="#">Profile</a>
+                                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"  >
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalLong">Profile</a>
 
-                                      <a href="{{ route('logout') }}" class="dropdown-item"
-                                          onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-                                          Sign Out
-                                      </a>
-                                      <form id="frm-logout" action="{{ route('logout') }}" method="POST"
-                                          style="display: none;">
-                                          {{ csrf_field() }}
-                                      </form>
-                                  </div>
+                                        <a href="{{ route('front_end_logout') }}" class="dropdown-item"
+                                            onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                                            Sign Out
+                                        </a>
+                                        <form id="frm-logout" action="{{ route('front_end_logout') }}" method="POST"
+                                            style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
                               </li>
                           @else
                               <li class="nav-item">
