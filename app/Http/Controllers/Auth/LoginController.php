@@ -28,21 +28,36 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'homepage';
+
+    protected function redirectTo()
+    {
+        // dd(auth()->user()->role);   
+        if (auth()->user()->role=='admin'||auth()->user()->role=='backend_user')  {
+            return '/homepage';
+        }
+        return '/user_homepage';
+    }
+    // protected $redirectTo = '/homepage';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest')->except('logout');
+    // }
 
     public function logout(Request $request)
     {
         Auth::logout();
         return redirect('/');
+    }
+
+    public function front_end_logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/user_homepage');
     }
 }

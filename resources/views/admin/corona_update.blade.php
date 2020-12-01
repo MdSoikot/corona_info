@@ -27,7 +27,7 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal">
+                            <form action={{route("add_corona_update")}} method="POST" class="form form-horizontal">
                                     <div class="form-body">
                                         <div class="row">
 
@@ -36,7 +36,7 @@
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" name="case">
                                                         <option value="new affected">New affected</option>
-                                                        <option value="deatch">Deatch</option>
+                                                        <option value="deatch">Death</option>
                                                         <option value="cure">Cure</option>
                                                         <option value="test">Test</option>
 

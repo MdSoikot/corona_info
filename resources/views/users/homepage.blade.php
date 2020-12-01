@@ -12,42 +12,96 @@
         <header class="header_section">
             <div class="container">
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="{{url('user_homepage')}}">
+                    <a class="navbar-brand" href="{{ url('user_homepage') }}">
                         <span>
                             Corona-info
                         </span>
                     </a>
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
                         <span class="s-1"> </span>
                         <span class="s-2"> </span>
                         <span class="s-3"> </span>
                     </button>
-        
+
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav ">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="{{url('user_homepage')}}">Home <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{{ url('user_homepage') }}">Home <span
+                                            class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{url('about')}}"> About</a>
+                                    <a class="nav-link" href="{{ url('about') }}"> About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{url('service')}}"> Service </a>
+                                    <a class="nav-link" href="{{ url('service') }}"> Service </a>
                                 </li>
-        
+
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{url('contact')}}">Contact </a>
+                                    <a class="nav-link" href="{{ url('contact') }}">Contact </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{url('join_us')}}">Join Us</a>
-                                </li>
+                                @if (Auth::check())
+                                    <li class="nav-item">
+                                        <a class="nav-link dropdown-toggle" href="#" href="#" id="navbarDropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">{{Auth::user()->name }}</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" data-toggle="modal" data-target="#exampleModalLong">
+                                            <a class="dropdown-item" href="#">Profile</a>
+
+                                            <a href="{{ route('front_end_logout') }}" class="dropdown-item"
+                                                onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                                                Sign Out
+                                            </a>
+                                            <form id="frm-logout" action="{{ route('logout') }}" method="POST"
+                                                style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </div>
+                                    </li>
+                                @else
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ url('join_us') }}">Join Us</a>
+
+                                    </li>
+
+                                @endif
                             </ul>
                         </div>
                     </div>
                 </nav>
+
+                <!-- Button trigger modal -->
+            
+
+                <!-- Modal -->
+                @if (Auth::check())
+
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLongTitle" aria-hidden="true" style="">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">My Profile</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Name : <span>{{Auth::user()->name}} </span></p>
+                                <p>Email : <span>{{Auth::user()->email}}</span></p>
+                                <p>Mobile : <span>{{Auth::user()->mobile}}</span></p>
+
+
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+                @endif
+
             </div>
         </header>
         <!-- end header section -->
@@ -61,13 +115,18 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
+                    {{-- <div class="carousel-item active">
+                        <img src="https://bangladesh.gov.bd/sites/default/files/files/bangladesh.gov.bd/top_banner/6c2564bf_8887_486e_bd58_d328c80735f4/corona_banner.jpeg"
+                            class="d-block w-100" alt="...">
+                    </div> --}}
+                    {{-- <div class="carousel-item active">
+                        <img src="https://static.vecteezy.com/system/resources/previews/000/834/838/original/coronavirus-cov-infographics-poster-vector.jpg"
+                            class="d-block w-100" alt="...">
+
+                    </div> --}}
                     <div class="carousel-item active">
-                        <img src="https://image.freepik.com/free-psd/coronavirus-prevention-banner-design-template_169869-231.jpg"
-                            class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://image.freepik.com/free-psd/virus-prevention-banner-template-with-protect-yourself-against-covid-19-concept_169869-228.jpg"
-                            class="d-block w-100" alt="...">
+                        <img src="https://dcmsme.gov.in/Awareness_corona/covid-19-banner.jpg" class="d-block w-100"
+                            alt="...">
 
                     </div>
 
@@ -86,7 +145,7 @@
 
             <div class="row">
                 <div class="col-md-3 live" style="border-top-right-radius: 22px;
-                                                        border-bottom-right-radius: 23px;">
+                                                                    border-bottom-right-radius: 23px;">
                     <p>Live Corona Update</p>
                 </div>
                 <div class="col-md-9" style="background-color: aliceblue;">
@@ -284,7 +343,7 @@
                 </div>
             </div>
             <div class="btn-box">
-                <a href="{{url('important_video')}}">
+                <a href="{{ url('important_video') }}">
                     View More
                 </a>
             </div>
@@ -293,178 +352,178 @@
 
     <!-- end portfolio section -->
 
-   <!-- service section -->
-   <section class="service_section inforamtion_services layout_padding">
-    <div class="container">
-        <div class="heading_container">
-            <h2>
-                Information and Services
-            </h2>
-        </div>
-
-        <div class="service_container">
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="">
-                        <div class="box telemedicine">
-                            <div class="img-box">
-                                <img src="{{ asset('user_template_assets/images/telemedicine.png') }}" class="img1"
-                                    alt="">
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    Telemedicine
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
-                                    aperiam itaque ab,
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="">
-
-                        <div class="box mobile_apps">
-                            <div class="img-box">
-                                <img src="{{ asset('user_template_assets/images/mobile_apps.png') }}" class="img1"
-                                    alt="">
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    Mobile Apps
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
-                                    aperiam itaque ab,
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="">
-                        <div class="box digital">
-                            <div class="img-box">
-                                <img src="{{ asset('user_template_assets/images/digital.png') }}" class="img1" alt="">
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    Digital Transactions
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
-                                    aperiam itaque ab,
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="">
-                        <div class="box online_shopping">
-                            <div class="img-box">
-                                <img src="{{ asset('user_template_assets/images/online_shopping.png') }}" class="img1"
-                                    alt="">
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    Online Shopping
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
-                                    aperiam itaque ab,
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+    <!-- service section -->
+    <section class="service_section inforamtion_services layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Information and Services
+                </h2>
             </div>
 
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="">
-                        <div class="box ambulance">
-                            <div class="img-box">
-                                <i class="fa fa-ambulance"></i>
+            <div class="service_container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="">
+                            <div class="box telemedicine">
+                                <div class="img-box">
+                                    <img src="{{ asset('user_template_assets/images/telemedicine.png') }}" class="img1"
+                                        alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Telemedicine
+                                    </h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
+                                        aperiam itaque ab,
+                                    </p>
+                                </div>
                             </div>
-                            <div class="detail-box">
-                                <h5>
-                                    Ambulance
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
-                                    aperiam itaque ab,
-                                </p>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="">
+
+                            <div class="box mobile_apps">
+                                <div class="img-box">
+                                    <img src="{{ asset('user_template_assets/images/mobile_apps.png') }}" class="img1"
+                                        alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Mobile Apps
+                                    </h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
+                                        aperiam itaque ab,
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="">
+                            <div class="box digital">
+                                <div class="img-box">
+                                    <img src="{{ asset('user_template_assets/images/digital.png') }}" class="img1" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Digital Transactions
+                                    </h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
+                                        aperiam itaque ab,
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="">
+                            <div class="box online_shopping">
+                                <div class="img-box">
+                                    <img src="{{ asset('user_template_assets/images/online_shopping.png') }}" class="img1"
+                                        alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Online Shopping
+                                    </h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
+                                        aperiam itaque ab,
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <a href="">
-                        <div class="box telemedicine">
-                            <div class="img-box">
-                                <img src="{{ asset('user_template_assets/images/website.png') }}" class="img1" alt="">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="">
+                            <div class="box ambulance">
+                                <div class="img-box">
+                                    <i class="fa fa-ambulance"></i>
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Ambulance
+                                    </h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
+                                        aperiam itaque ab,
+                                    </p>
+                                </div>
                             </div>
-                            <div class="detail-box">
-                                <h5>
-                                    Website and Portal
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
-                                    aperiam itaque ab,
-                                </p>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="">
+                            <div class="box telemedicine">
+                                <div class="img-box">
+                                    <img src="{{ asset('user_template_assets/images/website.png') }}" class="img1" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Website and Portal
+                                    </h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
+                                        aperiam itaque ab,
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="">
+                            <div class="box telemedicine">
+                                <div class="img-box">
+                                    <img src="{{ asset('user_template_assets/images/expatriate.png') }}" class="img1"
+                                        alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Expatriate
+                                    </h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
+                                        aperiam itaque ab,
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="">
+                            <div class="box telemedicine">
+                                <div class="img-box">
+                                    <img src="{{ asset('user_template_assets/images/corona_testing.png') }}" class="img1"
+                                        alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Corona Testing
+                                    </h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
+                                        aperiam itaque ab,
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <a href="">
-                        <div class="box telemedicine">
-                            <div class="img-box">
-                                <img src="{{ asset('user_template_assets/images/expatriate.png') }}" class="img1"
-                                    alt="">
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    Expatriate
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
-                                    aperiam itaque ab,
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="">
-                        <div class="box telemedicine">
-                            <div class="img-box">
-                                <img src="{{ asset('user_template_assets/images/corona_testing.png') }}" class="img1"
-                                    alt="">
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    Corona Testing
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi vel provident
-                                    aperiam itaque ab,
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+
+
             </div>
 
-
         </div>
-
-    </div>
-</section>
-<!-- end service section -->
+    </section>
+    <!-- end service section -->
 
     <!-- about section -->
     {{-- <section class="about_section layout_padding">

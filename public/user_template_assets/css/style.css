@@ -4,7 +4,9 @@ body {
   background-color: #ffffff;
 }
 
-
+.modal{
+  top:74px!important;
+}
 /*--custom_css---*/
 .top_bar{
   text-align: center;
@@ -52,6 +54,10 @@ body {
 }
 .log_register a:hover{
   color: #fff;
+}
+
+.dropdown-menu{
+  left: 1001px!important;
 }
 
 .corona_update .live{
@@ -545,7 +551,7 @@ a:focus {
 .carousel-item img{
   
     width: 100% !important;
-    max-height: 450px;
+    max-height: 500px;
 }
 .carousel-indicators{
   display: none;

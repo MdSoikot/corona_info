@@ -24,7 +24,7 @@
 
                                             <select class="form-select" id="role" name="role">
                                                 <option value="admin">Admin</option>
-                                                <option value="user">User</option>
+                                                <option value="backend_user">User</option>
                                             </select>
                                         </div>
                                     </div>

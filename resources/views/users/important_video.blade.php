@@ -29,25 +29,76 @@
                         <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav ">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{url('user_homepage')}}">Home <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{{ url('user_homepage') }}">Home <span
+                                            class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{url('about')}}"> About</a>
+                                    <a class="nav-link" href="{{ url('about') }}"> About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{url('service')}}"> Service </a>
+                                    <a class="nav-link" href="{{ url('service') }}"> Service </a>
                                 </li>
-        
+
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{url('contact')}}">Contact </a>
+                                    <a class="nav-link" href="{{ url('contact') }}">Contact </a>
                                 </li>
+                                @if (Auth::check())
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{url('join_us')}}">Join Us</a>
+                                    <a class="nav-link dropdown-toggle" href="#" href="#" id="navbarDropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">{{ Auth::user()->name }}</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" data-toggle="modal" data-target="#exampleModalLong">
+                                        <a class="dropdown-item" href="#">Profile</a>
+
+                                        <a href="{{ route('logout') }}" class="dropdown-item"
+                                            onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                                            Sign Out
+                                        </a>
+                                        <form id="frm-logout" action="{{ route('logout') }}" method="POST"
+                                            style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
                                 </li>
-                            </ul>
-                        </div>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('join_us') }}">Join Us</a>
+
+                                </li>
+
+                            @endif
+                        </ul>
                     </div>
-                </nav>
+                </div>
+            </nav>
+
+            <!-- Button trigger modal -->
+        
+
+            @if (Auth::check())
+
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLongTitle" aria-hidden="true" style="">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">My Profile</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Name : <span>{{Auth::user()->name}} </span></p>
+                            <p>Email : <span>{{Auth::user()->email}}</span></p>
+                            <p>Mobile : <span>{{Auth::user()->mobile}}</span></p>
+
+
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+            @endif
             </div>
         </header>
         <!-- end header section -->

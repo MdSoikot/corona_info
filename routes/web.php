@@ -16,6 +16,8 @@ Route::get('forgot_password', function () {
     return view('admin/forgot_password');
 });
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::post('front_end_logout', 'Auth\LoginController@front_end_logout')->name("front_end_logout");
+
 
 Route::middleware('auth')->group(function(){
  
@@ -29,6 +31,9 @@ Route::middleware('auth')->group(function(){
     Route::get('corona_update', function () {
         return view('admin/corona_update');
     });
+    // dd("error");
+    Route::post('add_corona_update', 'corona_update_controller@store')->name("add_corona_update");
+
     Route::get('add_video', function () {
         return view('admin/add_video');
     });
@@ -40,7 +45,7 @@ Route::middleware('auth')->group(function(){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/user_homepage', function () {
     return view('users/homepage');

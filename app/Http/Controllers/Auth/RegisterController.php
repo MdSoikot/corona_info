@@ -29,18 +29,28 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+
+    protected function redirectTo()
+    {
+        if (auth()->user()->role=='admin'||auth()->user()->role=='backend_user')  {
+            return '/';
+        }
+        return '/join_us';
+    }
+    // protected $redirectTo = '/homepage';
+    // protected $redirect_user = RouteServiceProvider::User_Homepage;  
+
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    // public function __construct()
+    // {
 
-        $this->middleware('guest');
-    }
+    //     $this->middleware('guest');
+    // }
 
     /**
      * Get a validator for an incoming registration request.
@@ -73,7 +83,7 @@ class RegisterController extends Controller
             'role' => $data['role'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            // 'password' => $data['password'],
+            'mobile' => $data['mobile'],
 
         ]);
     }
