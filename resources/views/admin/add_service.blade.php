@@ -31,8 +31,8 @@
                                     <div class="form-body">
                                         <div class="row">
 
-                                            <div class="col-md-6 form-group">
-                                                <label>service name</label>
+                                            <div class="col-md-12 form-group">
+                                                <label>Service name</label>
                                                 <input type="text" id="first-name" class="form-control" name="service_name">
                                             </div>
 
@@ -45,6 +45,11 @@
                                             <div class="col-md-6 form-group">
                                                 <label>Service Image</label>
                                                 <input type="file" id="first-name" class="form-control" name="service_img">
+                                            </div>
+
+                                            <div class="col-md-12 form-group">
+                                                <label>Content</label>
+                                                <textarea id="mytextarea">Hello, World!</textarea>
                                             </div>
                                           
 
@@ -64,9 +69,19 @@
         </section>
         <!-- // Basic Horizontal form layout section end -->
 
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
+        <script>
+            tinymce.init({
+              selector: 'textarea#mytextarea'
+            });
+            
+        </script>
 
 
 
     </div>
+
+    
+
 @endsection
