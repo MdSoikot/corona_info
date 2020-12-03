@@ -184,13 +184,20 @@
                             <div class="report">
                                 <div class="hour">
                                     <P style="font-size: 20px">24 Hour</P>
-                                    <P>{{$infected_update->today}}</P>
+                                    @if ($infected_update)
+                                        <P>{{$infected_update->today}}</P>
+                                    @else
+                                        <p>00</p>
+                                    @endif
 
                                 </div>
                                 <div class="total">
                                     <P style="font-size: 20px">Total</P>
-                                    <P>{{$infected_update->total}}</P>
-
+                                    @if ($infected_update)
+                                        <P>{{$infected_update->total}}</P>
+                                    @else
+                                        <p>00</p>
+                                    @endif
                                 </div>
                             </div>
 
@@ -208,13 +215,22 @@
                                 </div>
                                 <div class="report">
                                     <div class="hour">
+
                                         <P style="font-size: 20px">24 Hour</P>
-                                        <P>{{$death_update->today}}</P>
+                                        @if ($death_update)
+                                            <P>{{$death_update->today}}</P>
+                                        @else
+                                            <p>00</p>
+                                        @endif
 
                                     </div>
                                     <div class="total">
                                         <P style="font-size: 20px">Total</P>
-                                        <P>{{$death_update->total}}</P>
+                                        @if ($death_update)
+                                            <P>{{$death_update->total}}</P>
+                                        @else
+                                            <p>00</p>
+                                        @endif
 
                                     </div>
                                 </div>
@@ -234,13 +250,20 @@
                             <div class="report">
                                 <div class="hour">
                                     <P style="font-size: 20px">24 Hour</P>
-                                    <P>{{$cure_update->today}}</P>
+                                    @if ($cure_update)
+                                        <P>{{$cure_update->today}}</P>
+                                    @else
+                                        <p>00</p>
+                                    @endif
 
                                 </div>
                                 <div class="total">
                                     <P style="font-size: 20px">Total</P>
-                                    <P>{{$cure_update->total}}</P>
-
+                                    @if ($cure_update)
+                                        <P>{{$cure_update->total}}</P>
+                                    @else
+                                        <p>00</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -256,13 +279,20 @@
                             <div class="report">
                                 <div class="hour">
                                     <P style="font-size: 20px">24 Hour</P>
-                                    <P>{{$test_update->today}}</P>
-
+                                    @if ($test_update)
+                                        <P>{{$test_update->today}}</P>
+                                    @else
+                                        <P>00</P>
+                                    @endif
                                 </div>
                                 <div class="total">
                                     <P style="font-size: 20px">Total</P>
-                                    <P>{{$test_update->total}}</P>
-
+                                    @if ($test_update)
+                                        <P>{{$test_update->total}}</P>
+                                    @else
+                                        <P>00</P>
+                                    @endif
+                                    
                                 </div>
                             </div>
 
