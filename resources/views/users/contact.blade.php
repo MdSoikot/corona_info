@@ -106,9 +106,49 @@
         <!-- slider section -->
         <section class="contact-us">
             <div class="contact-us-banner" style="">
-            <img src="{{asset("user_template_assets/images/contact-us-banner.jpg")}}" class="" alt="image not found">
+            <img src="{{asset("user_template_assets/images/contact-us-banner.jpg")}}" class="" alt="image not found" style="width: 100%;
+            height: 400px;">
             </div>
         </section>
+
+
+        <section class="contact_section layout_padding">
+            <div class="container">
+        
+              <div class="heading_container">
+                <h2>
+                  Request A Call Back
+                </h2>
+              </div>
+             
+                  <div class="row">
+                    <div class="col-md-9 mx-auto">
+                      <div class="contact-form mt-5" style="box-shadow: 1px 2px 3px 1px #aaaaaa; ">
+                        <form action="" style="padding: 20px">
+                          <div>
+                            <input type="text" placeholder="Full Name ">
+                          </div>
+                          <div>
+                            <input type="text" placeholder="Phone Number">
+                          </div>
+                          <div>
+                            <input type="email" placeholder="Email Address">
+                          </div>
+                          <div>
+                            <input type="text" placeholder="Message" class="input_message">
+                          </div>
+                          <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn_on-hover">
+                              Send
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+              
+              </div>
+            </div>
+          </section>
 
         <!-- end slider section -->
     </div>
