@@ -30,7 +30,7 @@
                         <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav ">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url('user_homepage') }}">Home <span
+                                    <a class="nav-link" href="{{ route('user_homepage') }}">Home <span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
@@ -47,9 +47,10 @@
                                     <li class="nav-item">
                                         <a class="nav-link dropdown-toggle" href="#" href="#" id="navbarDropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">{{Auth::user()->name }}</a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"  >
-                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalLong">Profile</a>
+                                            aria-expanded="false">{{ Auth::user()->name }}</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" href="#" data-toggle="modal"
+                                                data-target="#exampleModalLong">Profile</a>
 
                                             <a href="{{ route('front_end_logout') }}" class="dropdown-item"
                                                 onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
@@ -74,32 +75,32 @@
                 </nav>
 
                 <!-- Button trigger modal -->
-            
+
 
                 <!-- Modal -->
                 @if (Auth::check())
 
-                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLongTitle" aria-hidden="true" style="">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">My Profile</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Name : <span>{{Auth::user()->name}} </span></p>
-                                <p>Email : <span>{{Auth::user()->email}}</span></p>
-                                <p>Mobile : <span>{{Auth::user()->mobile}}</span></p>
+                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLongTitle" aria-hidden="true" style="">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">My Profile</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Name : <span>{{ Auth::user()->name }} </span></p>
+                                    <p>Email : <span>{{ Auth::user()->email }}</span></p>
+                                    <p>Mobile : <span>{{ Auth::user()->mobile }}</span></p>
 
 
+                                </div>
+
                             </div>
-                        
                         </div>
                     </div>
-                </div>
                 @endif
 
             </div>
@@ -145,7 +146,7 @@
 
             <div class="row">
                 <div class="col-md-3 live" style="border-top-right-radius: 22px;
-                                                                    border-bottom-right-radius: 23px;">
+                                                                        border-bottom-right-radius: 23px;">
                     <p>Live Corona Update</p>
                 </div>
                 <div class="col-md-9" style="background-color: aliceblue;">
@@ -183,12 +184,12 @@
                             <div class="report">
                                 <div class="hour">
                                     <P style="font-size: 20px">24 Hour</P>
-                                    <P>1000</P>
+                                    <P>{{$infected_update->today}}</P>
 
                                 </div>
                                 <div class="total">
                                     <P style="font-size: 20px">Total</P>
-                                    <P>50000</P>
+                                    <P>{{$infected_update->total}}</P>
 
                                 </div>
                             </div>
@@ -200,25 +201,26 @@
                     </div>
 
                     <div class="col-md-3">
-                        <div class="card case_affect death" style="background: #3531cd;">
+                            <div class="card case_affect death" style="background: #3531cd;">
 
-                            <div class="new_affected">
-                                <h2>New Death</h2>
-                            </div>
-                            <div class="report">
-                                <div class="hour">
-                                    <P style="font-size: 20px">24 Hour</P>
-                                    <P>1000</P>
-
+                                <div class="new_affected">
+                                    <h2>New Death</h2>
                                 </div>
-                                <div class="total">
-                                    <P style="font-size: 20px">Total</P>
-                                    <P>50000</P>
+                                <div class="report">
+                                    <div class="hour">
+                                        <P style="font-size: 20px">24 Hour</P>
+                                        <P>{{$death_update->today}}</P>
 
+                                    </div>
+                                    <div class="total">
+                                        <P style="font-size: 20px">Total</P>
+                                        <P>{{$death_update->total}}</P>
+
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
 
                     </div>
 
@@ -232,12 +234,12 @@
                             <div class="report">
                                 <div class="hour">
                                     <P style="font-size: 20px">24 Hour</P>
-                                    <P>1000</P>
+                                    <P>{{$cure_update->today}}</P>
 
                                 </div>
                                 <div class="total">
                                     <P style="font-size: 20px">Total</P>
-                                    <P>50000</P>
+                                    <P>{{$cure_update->total}}</P>
 
                                 </div>
                             </div>
@@ -254,12 +256,12 @@
                             <div class="report">
                                 <div class="hour">
                                     <P style="font-size: 20px">24 Hour</P>
-                                    <P>1000</P>
+                                    <P>{{$test_update->today}}</P>
 
                                 </div>
                                 <div class="total">
                                     <P style="font-size: 20px">Total</P>
-                                    <P>50000</P>
+                                    <P>{{$test_update->total}}</P>
 
                                 </div>
                             </div>

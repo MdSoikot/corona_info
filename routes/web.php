@@ -31,8 +31,7 @@ Route::middleware('auth')->group(function(){
     Route::get('corona_update', function () {
         return view('admin/corona_update');
     });
-    // dd("error");
-    Route::post('add_corona_update', 'corona_update_controller@store')->name("add_corona_update");
+    Route::post('/add_corona_update', 'Corona_update_controller@store')->name("add_corona_update");
 
     Route::get('add_video', function () {
         return view('admin/add_video');
@@ -47,9 +46,7 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/user_homepage', function () {
-    return view('users/homepage');
-});
+Route::get('/user_homepage', 'Corona_update_controller@index')->name("user_homepage");
 
 Route::get('/about', function () {
     return view('users/about');
