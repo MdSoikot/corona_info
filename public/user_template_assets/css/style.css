@@ -862,7 +862,7 @@ a:focus {
   margin: 15px 0;
   padding: 10px 20px;
   border: 1px solid rgba(0, 0, 0, 0.4);
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 .contact_section .contact-form input.input_message {

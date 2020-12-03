@@ -408,7 +408,7 @@
                         <a href="">
                             <div class="box digital">
                                 <div class="img-box">
-                                    <img src="{{ asset('user_template_assets/images/digital.png') }}" class="img1" alt="">
+                                    <img src="{{ asset('user_template_assets/images/digital.png') }}" class="img1" alt="" >
                                 </div>
                                 <div class="detail-box">
                                     <h5>
