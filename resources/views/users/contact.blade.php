@@ -12,7 +12,7 @@
         <header class="header_section">
             <div class="container">
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="{{url('user_homepage')}}">
+                    <a class="navbar-brand" href="{{url('/')}}">
                         <span>
                             Corona-info
                         </span>
@@ -29,7 +29,7 @@
                         <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav ">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('user_homepage') }}">Home <span
+                                    <a class="nav-link" href="{{ url('/') }}">Home <span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item ">
@@ -124,20 +124,21 @@
                   <div class="row">
                     <div class="col-md-9 mx-auto">
                       <div class="contact-form mt-5" style="box-shadow: 1px 2px 3px 1px #aaaaaa; ">
-                        <form action="" style="padding: 20px">
+                      <form action="{{route('contact.store')}}" method="POST" padding: 20px">
+                        @csrf
                           <div>
-                            <input type="text" placeholder="Full Name ">
+                            <input type="text" placeholder="Name" name="name" required>
                           </div>
                           <div>
-                            <input type="text" placeholder="Phone Number">
+                            <input type="text" placeholder="Phone Number" name="mobile" required>
                           </div>
                           <div>
-                            <input type="email" placeholder="Email Address">
+                            <input type="email" placeholder="Email Address" name="email" required>
                           </div>
                           <div>
-                            <input type="text" placeholder="Message" class="input_message">
+                            <input type="text" placeholder="Message" class="input_message" name="message" required>
                           </div>
-                          <div class="d-flex justify-content-center">
+                          <div class="d-flex justify-content-left">
                             <button type="submit" class="btn_on-hover">
                               Send
                             </button>

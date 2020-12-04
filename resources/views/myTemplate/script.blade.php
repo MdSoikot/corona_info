@@ -7,7 +7,9 @@
 
 <script src="{{asset("template_assets/assets/vendors/chartjs/Chart.min.js")}}"></script>
 <script src="{{asset("template_assets/assets/vendors/apexcharts/apexcharts.min.js")}}"></script>
-{{-- <script src="{{asset("template_assets/assets/js/pages/dashboard.js")}}"></script> --}}
+<script src="{{asset("template_assets/assets/vendors/simple-datatables/simple-datatables.js")}}"></script>
+
+<script src="{{asset("template_assets/assets/js/vendors.js")}}"></script>
     
 <script src="{{asset("template_assets/assets/js/main.js")}}"></script>
 

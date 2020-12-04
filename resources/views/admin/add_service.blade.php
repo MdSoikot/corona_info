@@ -9,7 +9,7 @@
                 <div class="col-12 col-md-12 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class='breadcrumb-header'>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{'homepage'}}">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Add Service</li>
                         </ol>
                     </nav>
@@ -27,8 +27,9 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal">
-                                    <div class="form-body">
+                                <form class="form form-horizontal" action="{{route("services.store")}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                     <div class="form-body">
                                         <div class="row">
 
                                             <div class="col-md-12 form-group">
@@ -39,17 +40,17 @@
                                           
                                             <div class="col-md-6 form-group">
                                                 <label>Title</label>
-                                                <input type="text" id="first-name" class="form-control" name="sub_title">
+                                                <input type="text" id="first-name" class="form-control" name="title">
                                             </div>
                                             
                                             <div class="col-md-6 form-group">
                                                 <label>Service Image</label>
-                                                <input type="file" id="first-name" class="form-control" name="service_img">
+                                                <input type="file" id="first-name" class="form-control" name="service_image">
                                             </div>
 
                                             <div class="col-md-12 form-group">
                                                 <label>Content</label>
-                                                <textarea id="mytextarea">Hello, World!</textarea>
+                                                <textarea id="mytextarea" name="content">Hello, World!</textarea>
                                             </div>
                                           
 
@@ -81,6 +82,8 @@
 
 
     </div>
+
+    
 
     
 

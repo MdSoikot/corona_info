@@ -20,13 +20,13 @@
 
                 </li>
 
-                <li class="sidebar-item">
+                {{-- <li class="sidebar-item">
                 <a href="{{url("/add_slider")}}" class='sidebar-link'>
                         <i data-feather="home" width="20"></i>
                         <span>Add slider</span>
                     </a>
 
-                </li>
+                </li> --}}
 
                 <li class="sidebar-item  ">
                     <a href="{{url("/corona_update")}}" class='sidebar-link'>
@@ -44,27 +44,23 @@
 
                 </li>
 
-                <li class="sidebar-item">
-                    <a href="{{url("/add_service")}}" class='sidebar-link'>
-                        <i data-feather="home" width="20"></i>
-                        <span>Add Service</span>
-                    </a>
-
-                </li>
-
+    
 
 
 
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i data-feather="triangle" width="20"></i>
-                        <span>Components</span>
+                        <i data-feather="home" width="20"></i>
+                        <span>Services</span>
                     </a>
 
                     <ul class="submenu ">
 
                         <li>
-                            <a href="component-alert.html">Alert</a>
+                            <a href="{{url("/add_service")}}">Add Service</a>
+                        </li>
+                        <li>
+                            <a href="{{url('services')}}">Show Service</a>
                         </li>
 
 

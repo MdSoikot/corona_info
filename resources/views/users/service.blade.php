@@ -11,7 +11,7 @@
         <header class="header_section">
             <div class="container">
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="{{url('user_homepage')}}">
+                    <a class="navbar-brand" href="{{url('/')}}">
                         <span>
                             Corona-info
                         </span>
@@ -28,7 +28,7 @@
                         <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav ">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('user_homepage') }}">Home <span
+                                    <a class="nav-link" href="{{ url('/') }}">Home <span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">

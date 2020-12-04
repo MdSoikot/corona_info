@@ -35,7 +35,7 @@ class LoginController extends Controller
         if (auth()->user()->role=='admin'||auth()->user()->role=='backend_user')  {
             return '/homepage';
         }
-        return '/user_homepage';
+        return '/';
     }
     // protected $redirectTo = '/homepage';
 
@@ -52,12 +52,12 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('admin/login');
     }
 
     public function front_end_logout(Request $request)
     {
         Auth::logout();
-        return redirect('/user_homepage');
+        return redirect('/');
     }
 }

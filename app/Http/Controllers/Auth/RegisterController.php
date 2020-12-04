@@ -34,7 +34,7 @@ class RegisterController extends Controller
     {
         // dd(auth()->user()->role);
         if (auth()->user()->role=='admin'||auth()->user()->role=='backend_user')  {
-            return '/';
+            return 'admin/login';
         }
         return '/join_us';
     }

@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
+
+Route::get('admin/login', function () {
     return view('admin/login');
 });
 
@@ -17,6 +18,8 @@ Route::get('forgot_password', function () {
 });
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::post('front_end_logout', 'Auth\LoginController@front_end_logout')->name("front_end_logout");
+Route::resource('contact', 'contact_controller');
+
 
 
 Route::middleware('auth')->group(function(){
@@ -32,6 +35,7 @@ Route::middleware('auth')->group(function(){
         return view('admin/corona_update');
     });
     Route::post('/add_corona_update', 'Corona_update_controller@store')->name("add_corona_update");
+    Route::resource('/services', 'Service_controller');
 
     Route::get('add_video', function () {
         return view('admin/add_video');
@@ -46,7 +50,7 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/user_homepage', 'Corona_update_controller@index')->name("user_homepage");
+Route::get('/', 'Corona_update_controller@index')->name("user_homepage");
 
 Route::get('/about', function () {
     return view('users/about');

@@ -69,6 +69,9 @@
  * 5. Utilities
  * 6. Responsive
  */
+ .tox-notification tox-notification--in tox-notification--warning{
+   display: none!important;
+ }
 .color-primary {
   color: #5A8DEE;
 }
