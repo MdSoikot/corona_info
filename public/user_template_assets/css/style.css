@@ -1027,3 +1027,27 @@ a:focus {
   color: #ffffff;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+/*Top Bar*/
+.top-bar-menu ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.top-bar-menu ul li{
+  display: inline-block;
+  
+}
+.top-bar-menu ul li a{
+  display: block;
+  text-decoration: none;
+  color: red;
+  padding: 10px 20px;
+}
+.help-center{
+  color: red;
+  padding: 10px;
+  display: block;
+}
+/*Top Bar*/
