@@ -39,14 +39,14 @@
                         <tbody>
                             <?php $id = 1; ?>
                             @foreach ($allData as $item)
-
                                 <tr>
                                     <td>{{ $id++ }}</td>
                                     <td>{{ $item->service_name }}</td>
                                     <td>{{ $item->title }}</td>
                                     <td>
 
-                                        <img src="<?php echo asset("storage/app/uploads/images/$item->service_image"); ?>">
+                                        <img src="<?php echo asset($item->service_image); ?>" style="width: 50px;
+                                        height: 60px;">
                                     </td>
                                     <td>
                                         {!! html_entity_decode($item->content) !!}
@@ -60,7 +60,6 @@
 
                                     </td>
                                 </tr>
-
 
                                 <div class="modal fade" id="editModal{{ $item->id }}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLongTitle" aria-hidden="true" style="">
@@ -98,6 +97,8 @@
                                                                 <label>Service Image</label>
                                                                 <input type="file" id="first-name" class="form-control"
                                                                     name="service_image">
+                                                                    <img src="<?php echo asset($item->service_image); ?>" style="width: 50px;
+                                                                    height: 60px;">
                                                             </div>
 
                                                             <div class="col-md-12 form-group">

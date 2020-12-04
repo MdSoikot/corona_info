@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function(){
     });
     Route::post('/add_corona_update', 'Corona_update_controller@store')->name("add_corona_update");
     Route::resource('/services', 'Service_controller');
+    Route::resource('/videos', 'Video_controller');
 
     Route::get('add_video', function () {
         return view('admin/add_video');

@@ -27,20 +27,25 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal">
+                            <form class="form form-horizontal" action="{{route('videos.store')}}" method="POST" enctype="multipart/form-data">
+                                @csrf
                                     <div class="form-body">
                                         <div class="row">
 
-                                            <div class="col-md-6 form-group">
+                                            <div class="col-md-12 form-group">
                                                 <label>Video Link</label>
-                                                <input type="text" id="first-name" class="form-control" name="video_link">
+                                                <input type="text"  class="form-control" name="video_link">
                                             </div>
 
-                                          
+                                            <div class="col-md-6 form-group">
+                                                <label>Video Thumbnail</label>
+                                                <input type="file"  class="form-control" name="video_thumbnail">
+                                            </div>
                                             <div class="col-md-6 form-group">
                                                 <label>Video Details</label>
-                                                <input type="text" id="first-name" class="form-control" name="video_details">
+                                                <input type="text"  class="form-control" name="video_details">
                                             </div>
+                                          
                                             
                                             <div class="col-sm-12 d-flex justify-content-start">
                                                 <button type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>

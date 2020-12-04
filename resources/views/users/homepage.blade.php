@@ -324,54 +324,31 @@
 
             <div class="layout_padding2-top">
                 <div class="row">
+                    
+                    @foreach ($video_Data as $item)
+                        
                     <div class="col-md-4 col-sm-6">
+                        <div class="img-box">
+                            <img src="<?php echo asset($item->video_thumbnail)?>" alt="" style="width: 100%;height:255px;border-radius: 12px;">
+                            <a href="{{$item->video_link}}">
+                            <img src="{{asset("user_template_assets/images/link.png")}}" alt="">
+                            </a>
+                        </div>
+                        <div class="video_details" style="margin:10px">
+                            <p>{{$item->video_details}}</p>
+                        </div>
+                    </div>
+                    @endforeach
+
+                    {{-- <div class="col-md-4 col-sm-6">
                         <div class="img-box">
                             <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
                             <a href="https://www.youtube.com/watch?v=KIsek2Cc7V8&feature=youtu.be">
-                                <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
+                                <img src="{{asset("user_template_assets/images/link.png")}}" alt="">
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="img-box">
-                            <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
-                            <a href="https://www.youtube.com/watch?v=KIsek2Cc7V8&feature=youtu.be">
-                                <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="img-box">
-                            <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
-                            <a href="https://www.youtube.com/watch?v=KIsek2Cc7V8&feature=youtu.be">
-                                <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="img-box">
-                            <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
-                            <a href="https://www.youtube.com/watch?v=KIsek2Cc7V8&feature=youtu.be">
-                                <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="img-box">
-                            <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
-                            <a href="https://www.youtube.com/watch?v=KIsek2Cc7V8&feature=youtu.be">
-                                <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="img-box">
-                            <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
-                            <a href="https://www.youtube.com/watch?v=KIsek2Cc7V8&feature=youtu.be">
-                                <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
+               --}}
                 </div>
             </div>
             <div class="btn-box">
