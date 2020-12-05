@@ -328,27 +328,22 @@
                     @foreach ($video_Data as $item)
                         
                     <div class="col-md-4 col-sm-6">
-                        <div class="img-box">
-                            <img src="<?php echo asset($item->video_thumbnail)?>" alt="" style="width: 100%;height:255px;border-radius: 12px;">
-                            <a href="{{$item->video_link}}">
-                            <img src="{{asset("user_template_assets/images/link.png")}}" alt="">
-                            </a>
+                        <div class="a" style="box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);;margin: 20px;
+                        border-radius: 10px;padding:10px">
+                            <div class="img-box">
+                                <img src="<?php echo asset($item->video_thumbnail)?>" alt="" style="width: 100%;height:255px;border-radius: 12px;">
+                                <a href="{{$item->video_link}}">
+                                <img src="{{asset("user_template_assets/images/link.png")}}" alt="">
+                                </a>
+                            </div>
+                            <div class="video_details" style="margin:10px">
+                                <p>{{$item->video_details}}</p>
+                            </div>
                         </div>
-                        <div class="video_details" style="margin:10px">
-                            <p>{{$item->video_details}}</p>
-                        </div>
+                  
                     </div>
                     @endforeach
 
-                    {{-- <div class="col-md-4 col-sm-6">
-                        <div class="img-box">
-                            <img src="https://img.youtube.com/vi/KIsek2Cc7V8/0.jpg" alt="">
-                            <a href="https://www.youtube.com/watch?v=KIsek2Cc7V8&feature=youtu.be">
-                                <img src="{{asset("user_template_assets/images/link.png")}}" alt="">
-                            </a>
-                        </div>
-                    </div>
-               --}}
                 </div>
             </div>
             <div class="btn-box">
