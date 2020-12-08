@@ -51,6 +51,10 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
+// Route::get('/', function(){
+//     return view('frontend.home.index');
+// });
+
 Route::get('/', 'Corona_update_controller@index')->name("user_homepage");
 
 Route::get('/about', function () {
