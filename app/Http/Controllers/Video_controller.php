@@ -38,13 +38,24 @@ class Video_controller extends Controller
     {
         if ($request->hasFile('video_thumbnail')) {
             if ($request->file('video_thumbnail')->isValid()) {
-                $uploadPath = "public/uploads/images/";
-                $image_name = md5(date("Y:m:d:h:i:s"));
-                $request->video_thumbnail->storeAs($uploadPath, $image_name . "." . $request->file('video_thumbnail')->getClientOriginalExtension());
-                $url = Storage::url($uploadPath . $image_name . "." . $request->file('video_thumbnail')->getClientOriginalExtension());
+                // $uploadPath = "public/uploads/thumbnails/";
+                // $image_name = md5(date("Y:m:d:h:i:s"));
+
+
+                // $request->video_thumbnail->storeAs($uploadPath, $image_name . "." . $request->file('video_thumbnail')->getClientOriginalExtension());
+                // $url = Storage::url($uploadPath . $image_name . "." . $request->file('video_thumbnail')->getClientOriginalExtension());
+
+                $file                   = $request->file('video_thumbnail');
+                $thumbNameTmp           = md5_file($file->getRealPath());
+                $extension              = $file->getClientOriginalExtension();
+                $filename               = 'image-'.$thumbNameTmp.'_'.time().'.'.$extension;
+                $path                   = 'uploads/thumbnails/';
+                $url                    = $file->move($path, $filename);
+
+
                 important_video::create([
                     'video_link' => $request->video_link,
-                    'video_thumbnail' => $url,
+                    'video_thumbnail' => $path.''.$filename,
                     'video_details' => $request->video_details
 
                 ]);

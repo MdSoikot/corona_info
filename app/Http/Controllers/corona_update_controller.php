@@ -16,8 +16,9 @@ class Corona_update_controller extends Controller
         $death_update = DB::table('corona_update_bans')->where('case','death')->orderBy('created_at', 'DESC')->first();
         $cure_update = DB::table('corona_update_bans')->where('case','cure')->orderBy('created_at', 'DESC')->first();
         $test_update = DB::table('corona_update_bans')->where('case','test')->orderBy('created_at', 'DESC')->first();
-        $video_Data=important_video::all();
-        
+        $video_Data=important_video::orderBy('id', 'desc')->take(6)->get();
+
+
         return view('frontend.home.index', compact('infected_update','death_update','cure_update','test_update','video_Data'));
     }
 
