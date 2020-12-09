@@ -17,7 +17,8 @@ class Service_controller extends Controller
     public function index()
     {
         $allData = services::all();
-        return view('./admin/show_service', compact('allData'));
+
+        return view('admin.show_service', compact('allData'));
     }
 
     /**

@@ -23,26 +23,26 @@ Route::resource('/contact', 'contact_controller');
 
 Route::middleware('auth')->group(function () {
 
+    Route::group(['prefix'=>'admin'], function(){
+        Route::get('homepage', function () {
+            return view('admin/homepage');
+        });
+        Route::get('add_slider', function () {
+            return view('admin/add_slider');
+        });
+        Route::get('corona_update', function () {
+            return view('admin/corona_update');
+        });
+        Route::post('/add_corona_update', 'Corona_update_controller@store')->name("add_corona_update");
+        Route::resource('/services', 'Service_controller');
+        Route::resource('/videos', 'Video_controller');
+    
+        Route::get('add_service', function () {
+            return view('admin/add_service');
+        });
+    });
 
-    Route::get('homepage', function () {
-        return view('admin/homepage');
-    });
-    Route::get('add_slider', function () {
-        return view('admin/add_slider');
-    });
-    Route::get('corona_update', function () {
-        return view('admin/corona_update');
-    });
-    Route::post('/add_corona_update', 'Corona_update_controller@store')->name("add_corona_update");
-    Route::resource('/services', 'Service_controller');
-    Route::resource('/videos', 'Video_controller');
-
-    Route::get('add_video', function () {
-        return view('admin/add_video');
-    });
-    Route::get('add_service', function () {
-        return view('admin/add_service');
-    });
+    
 });
 
 

@@ -33,7 +33,7 @@ class LoginController extends Controller
     {
         // dd(auth()->user()->role);   
         if (auth()->user()->role=='admin'||auth()->user()->role=='backend_user')  {
-            return '/homepage';
+            return '/admin/homepage';
         }
         return '/';
     }

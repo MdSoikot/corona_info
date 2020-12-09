@@ -13,7 +13,7 @@
                 
 
                 <li class="sidebar-item active ">
-                    <a href="{{url("/homepage")}}" class='sidebar-link'>
+                    <a href="{{url("/admin/homepage")}}" class='sidebar-link'>
                         <i data-feather="home" width="20"></i>
                         <span>Dashboard</span>
                     </a>
@@ -29,25 +29,12 @@
                 </li> --}}
 
                 <li class="sidebar-item  ">
-                    <a href="{{url("/corona_update")}}" class='sidebar-link'>
+                    <a href="{{url("/admin/corona_update")}}" class='sidebar-link'>
                         <i data-feather="home" width="20"></i>
                         <span>Corona Update</span>
                     </a>
 
                 </li>
-
-                <li class="sidebar-item">
-                    <a href="{{url("/add_video")}}" class='sidebar-link'>
-                        <i data-feather="home" width="20"></i>
-                        <span>Add Video</span>
-                    </a>
-
-                </li>
-
-    
-
-
-
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i data-feather="home" width="20"></i>
@@ -57,10 +44,29 @@
                     <ul class="submenu ">
 
                         <li>
-                            <a href="{{url("/add_service")}}">Add Service</a>
+                            <a href="{{url("/admin/add_service")}}">Add Service</a>
                         </li>
                         <li>
-                            <a href="{{url('services')}}">Show Service</a>
+                            <a href="{{url('/admin/services')}}">Show Service</a>
+                        </li>
+
+
+                    </ul>
+
+                </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>Videos</span>
+                    </a>
+
+                    <ul class="submenu ">
+
+                        <li>
+                            <a href="{{url("/admin/videos/create")}}">Add Video</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/admin/videos')}}">Show Videos</a>
                         </li>
 
 

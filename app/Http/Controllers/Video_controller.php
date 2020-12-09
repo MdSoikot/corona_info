@@ -14,7 +14,9 @@ class Video_controller extends Controller
      */
     public function index()
     {
-        //
+        $allVideos = important_video::all();
+
+        return view('admin..videos.videos', compact('allVideos'));
     }
 
     /**
@@ -24,8 +26,7 @@ class Video_controller extends Controller
      */
     public function create()
     {
-        $allData=important_video::all();
-        return view('admin/add_video',compact('allData'));
+        return view('admin.videos.add_video');
     }
 
     /**
@@ -38,13 +39,6 @@ class Video_controller extends Controller
     {
         if ($request->hasFile('video_thumbnail')) {
             if ($request->file('video_thumbnail')->isValid()) {
-                // $uploadPath = "public/uploads/thumbnails/";
-                // $image_name = md5(date("Y:m:d:h:i:s"));
-
-
-                // $request->video_thumbnail->storeAs($uploadPath, $image_name . "." . $request->file('video_thumbnail')->getClientOriginalExtension());
-                // $url = Storage::url($uploadPath . $image_name . "." . $request->file('video_thumbnail')->getClientOriginalExtension());
-
                 $file                   = $request->file('video_thumbnail');
                 $thumbNameTmp           = md5_file($file->getRealPath());
                 $extension              = $file->getClientOriginalExtension();
@@ -103,7 +97,33 @@ class Video_controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $video = important_video::find($id);
+        if ($request->hasFile('video_thumbnail')) {
+            if ($request->file('video_thumbnail')->isValid()) {
+                $file                   = $request->file('video_thumbnail');
+                $thumbNameTmp           = md5_file($file->getRealPath());
+                $extension              = $file->getClientOriginalExtension();
+                $filename               = 'image-'.$thumbNameTmp.'_'.time().'.'.$extension;
+                $path                   = 'uploads/thumbnails/';
+                $url                    = $file->move($path, $filename);
+
+
+                $video->update([
+                    'video_link' => $request->video_link,
+                    'video_thumbnail' => $path.''.$filename,
+                    'video_details' => $request->video_details
+
+                ]);
+                return back();
+            }
+        } else {
+            $video->update([
+                'video_link' => $request->video_link,
+                'video_details' => $request->video_details
+
+            ]);
+            return redirect()->back()->with('update_confirm_msg', 'success');
+        }
     }
 
     /**
