@@ -2160,7 +2160,11 @@ ul {
 .main-nav.two.menu-shrink {
   background-color: #3140FC;
 }
-
+.main-nav .nav-item{
+  margin-right: 10px;
+    margin-left: 10px;
+}
+  
 .main-nav.two nav .navbar-nav {
   margin-right: 0;
 }

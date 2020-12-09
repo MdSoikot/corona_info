@@ -36,7 +36,7 @@ class RegisterController extends Controller
         if (auth()->user()->role=='admin'||auth()->user()->role=='backend_user')  {
             return 'admin/login';
         }
-        return '/join_us';
+        return '/user_login';
     }
     // protected $redirectTo = '/homepage';
     // protected $redirect_user = RouteServiceProvider::User_Homepage;  

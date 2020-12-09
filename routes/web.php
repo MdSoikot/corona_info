@@ -18,13 +18,12 @@ Route::get('forgot_password', function () {
 });
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::post('front_end_logout', 'Auth\LoginController@front_end_logout')->name("front_end_logout");
-Route::resource('contact', 'contact_controller');
+Route::resource('/contact', 'contact_controller');
 
 
+Route::middleware('auth')->group(function () {
 
-Route::middleware('auth')->group(function(){
- 
- 
+
     Route::get('homepage', function () {
         return view('admin/homepage');
     });
@@ -49,29 +48,27 @@ Route::middleware('auth')->group(function(){
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Route::get('/', function(){
-//     return view('frontend.home.index');
-// });
 
 Route::get('/', 'Corona_update_controller@index')->name("user_homepage");
 
 Route::get('/about', function () {
-    return view('users/about');
+    return view('frontend/home/about');
 });
 
-Route::get('/service', function () {
-    return view('users/service');
+Route::get('/services', function () {
+    return view('frontend/home/services');
 });
 
-Route::get('/contact', function () {
-    return view('users/contact');
+Route::get('/contact_page', function () {
+    return view('frontend/home/contact');
 });
 Route::get('/important_video', function () {
     return view('users/important_video');
 });
 
-Route::get('/join_us', function () {
-    return view('users/join_us');
+Route::get('/user_register', function () {
+    return view('frontend/home/user_register');
+});
+Route::get('/user_login', function () {
+    return view('frontend/home/user_login');
 });

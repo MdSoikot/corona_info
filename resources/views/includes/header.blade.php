@@ -64,7 +64,8 @@
   <!-- Menu For Mobile Device -->
   <div class="mobile-nav">
       <a href="index.html" class="logo">
-          <img src="assets/img/logo-two.png" alt="Logo">
+          {{-- <img src="assets/img/logo-two.png" alt="Logo"> --}}
+          Corona-info
       </a>
   </div>
 
@@ -72,116 +73,31 @@
   <div class="main-nav">
       <div class="container">
           <nav class="navbar navbar-expand-md navbar-light">
-              <a class="navbar-brand" href="index.html">
-                  <img src="assets/img/logo.png" alt="Logo">
+              <a class="navbar-brand" href="{{ url('/') }}" style="color: #000">
+                Corona-info
+
               </a>
               <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                   <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a  href="{{ url('/') }}" class="nav-link">Home</a>
+                    </li>
+                     
                       <li class="nav-item">
-                          <a href="#" class="nav-link dropdown-toggle active">Home <i class='bx bx-chevron-down'></i></a>
-                          <ul class="dropdown-menu">
-                              <li class="nav-item">
-                                  <a href="index.html" class="nav-link active">Home Demo One</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="index-2.html" class="nav-link">Home Demo Two</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="index-3.html" class="nav-link">Home Demo Three</a>
-                              </li>
-                          </ul>
+                          <a  href="{{ url('about') }}" class="nav-link">About</a>
                       </li>
                       <li class="nav-item">
-                          <a href="#" class="nav-link dropdown-toggle">Pages <i class='bx bx-chevron-down'></i></a>
-                          <ul class="dropdown-menu">
-                              <li class="nav-item">
-                                  <a href="#" class="nav-link dropdown-toggle">Users <i class='bx bx-chevron-down'></i></a>
-                                  <ul class="dropdown-menu">
-                                      <li class="nav-item">
-                                          <a href="sign-in.html" class="nav-link">Sign In</a>
-                                      </li>
-                                      <li class="nav-item">
-                                          <a href="sign-up.html" class="nav-link">Sign Up</a>
-                                      </li>
-                                  </ul>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="#" class="nav-link dropdown-toggle">Team <i class='bx bx-chevron-down'></i></a>
-                                  <ul class="dropdown-menu">
-                                      <li class="nav-item">
-                                          <a href="team.html" class="nav-link">Team</a>
-                                      </li>
-                                      <li class="nav-item">
-                                          <a href="team-details.html" class="nav-link">Team Details</a>
-                                      </li>
-                                  </ul>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="Pricing.html" class="nav-link">Pricing</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="testimonials.html" class="nav-link">Testimonials</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="faq.html" class="nav-link">FAQ</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="404.html" class="nav-link">404 Error Page</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="coming-soon.html" class="nav-link">Coming Soon</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="terms-conditions.html" class="nav-link">Terms & Conditions</a>
-                              </li>
-                          </ul>
-                      </li>
-                      <li class="nav-item">
-                          <a href="about.html" class="nav-link">About</a>
-                      </li>
-                      <li class="nav-item">
-                          <a href="#" class="nav-link dropdown-toggle">Services <i class='bx bx-chevron-down'></i></a>
-                          <ul class="dropdown-menu">
-                              <li class="nav-item">
-                                  <a href="services.html" class="nav-link">Services</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="service-details.html" class="nav-link">Service Details</a>
-                              </li>
-                          </ul>
-                      </li>
-                      <li class="nav-item">
-                          <a href="#" class="nav-link dropdown-toggle">Projects <i class='bx bx-chevron-down'></i></a>
-                          <ul class="dropdown-menu">
-                              <li class="nav-item">
-                                  <a href="projects.html" class="nav-link">Projects</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="project-details.html" class="nav-link">Project Details</a>
-                              </li>
-                          </ul>
-                      </li>
-                      <li class="nav-item">
-                          <a href="#" class="nav-link dropdown-toggle">Blog <i class='bx bx-chevron-down'></i></a>
-                          <ul class="dropdown-menu">
-                              <li class="nav-item">
-                                  <a href="blog.html" class="nav-link">Blog</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="blog-details.html" class="nav-link">Blog Details</a>
-                              </li>
-                          </ul>
-                      </li>
-                      <li class="nav-item">
-                          <a href="contact.html" class="nav-link">Contact</a>
-                      </li>
+                        <a href="{{ url('services') }}" class="nav-link">Services</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{{ url('contact_page') }}" class="nav-link">Contact</a>
+                    </li>
+                   
                   </ul>
 
                   <div class="side-nav">
-                      <div class="nav-search">
+                      {{-- <div class="nav-search">
                           <i id="search-btn" class="bx bx-search-alt"></i>
                           <div id="search-overlay" class="block">
                               <div class="centered">
@@ -194,27 +110,40 @@
                                   </div>
                               </div>
                           </div>
-                      </div>
+                      </div> --}}
                       <div class="dropdown nav-flag-dropdown">
+                        @if (Auth::check())
+
                           <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <img src="{{asset('assets/img/flag1.jpg')}}" alt="Flag">
-                              Eng
+                              {{Auth::user()->name}}
                               <i class='bx bx-chevron-down'></i>
                           </button>
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">
-                                  <img src="{{asset('assets/img/flag2.jpg')}}" alt="Flag">
-                                  Ger
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                  <img src="{{asset('assets/img/flag3.jpg')}}" alt="Flag">
-                                  Isr
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                  <img src="{{asset('assets/img/flag4.jpg')}}" alt="Flag">
-                                  USA
-                              </a>
-                          </div>
+                            <a class="dropdown-item" href="#" data-toggle="modal"  data-target="#exampleModalLong">
+                                My Profile
+                            </a>
+                            <a class="dropdown-item" href="{{ route('front_end_logout') }}"  onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                                Sign Out
+                            </a>   
+                            
+                            
+                        </a>
+                        <form id="frm-logout" action="{{ route('front_end_logout') }}" method="POST"
+                            style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                            @else
+                            <a class="dropdown-item" href="{{ url('user_login') }}">
+                                Join Us
+                            </a> 
+
+                            
+                            @endif
+
+                        </div>
+
+                     
+                        
                       </div>
                   </div>
 
@@ -223,4 +152,29 @@
       </div>
   </div>
 </div>
+
+@if (Auth::check())
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLongTitle" aria-hidden="true" style="">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">My Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Name : <span>{{ Auth::user()->name }} </span></p>
+                <p>Email : <span>{{ Auth::user()->email }}</span></p>
+                <p>Mobile : <span>{{ Auth::user()->mobile }}</span></p>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+@endif
 <!-- End Navbar -->
