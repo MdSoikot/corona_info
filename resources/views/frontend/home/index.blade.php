@@ -1,5 +1,16 @@
 @extends('layouts.main')
 
+@section('header-style')
+  <style>
+    .projects-item {
+      height: 230px;
+    }
+    .projects-item img{
+      height: 100%;
+    }
+  </style>
+@endsection
+
 @section('content')
   <!-- Banner -->
   <div class="banner-area">
@@ -235,72 +246,19 @@
         </div>
         
         <div class="row">
-
+          @foreach ($services as $service)
             <div class="col-sm-6 col-lg-4">
-                <div class="services-item card-overlay active">
+                <div class="services-item card-overlay @if($loop->index % 2 == 0) active @endif">
                     <i class="flaticon-marketing-strategy"></i>
                     <h3>
-                        <a href="service-details.html">Business Strategy</a>
+                        <a href="#">{{$service->service_name}}</a>
                     </h3>
-                    <p>Lorem ipsum dolor sit amet, conse tetur sadipscing elitr, sed diam nonumy eirm od tempor invidunt ut labore et dolore magna</p>
-                    <a class="services-btn" href="service-details.html">Read More</a>
+                    <p>{{$service->title}}</p>
+                    <a class="services-btn" href="#">Read More</a>
                 </div>
             </div>
-
-            <div class="col-sm-6 col-lg-4">
-                <div class="services-item card-overlay">
-                    <i class="flaticon-dollars-money-bag-with-a-clock"></i>
-                    <h3>
-                        <a href="service-details.html">Investment Planning</a>
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet, conse tetur sadipscing elitr, sed diam nonumy eirm od tempor invidunt ut labore et dolore magna</p>
-                    <a class="services-btn" href="service-details.html">Read More</a>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-lg-4">
-                <div class="services-item card-overlay active">
-                    <i class="flaticon-strategy-in-a-labyrinth"></i>
-                    <h3>
-                        <a href="service-details.html">Project Management</a>
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet, conse tetur sadipscing elitr, sed diam nonumy eirm od tempor invidunt ut labore et dolore magna</p>
-                    <a class="services-btn" href="service-details.html">Read More</a>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-lg-4">
-                <div class="services-item card-overlay">
-                    <i class="flaticon-trend"></i>
-                    <h3>
-                        <a href="service-details.html">Financial Analysis</a>
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet, conse tetur sadipscing elitr, sed diam nonumy eirm od tempor invidunt ut labore et dolore magna</p>
-                    <a class="services-btn" href="service-details.html">Read More</a>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-lg-4">
-                <div class="services-item card-overlay active">
-                    <i class="flaticon-evaluate"></i>
-                    <h3>
-                        <a href="service-details.html">Audit & Evaluation</a>
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet, conse tetur sadipscing elitr, sed diam nonumy eirm od tempor invidunt ut labore et dolore magna</p>
-                    <a class="services-btn" href="service-details.html">Read More</a>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-lg-4">
-                <div class="services-item card-overlay">
-                    <i class="flaticon-insurance"></i>
-                    <h3>
-                        <a href="service-details.html">Support & Maintain</a>
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet, conse tetur sadipscing elitr, sed diam nonumy eirm od tempor invidunt ut labore et dolore magna</p>
-                    <a class="services-btn" href="service-details.html">Read More</a>
-                </div>
-            </div>
+          @endforeach
+            
 
         </div>
 

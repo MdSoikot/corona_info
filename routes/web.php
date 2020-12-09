@@ -42,6 +42,9 @@ Route::middleware('auth')->group(function () {
         });
     });
 
+    Route::get('/user/profile', 'UserController@userProfile');
+    Route::post('/user/profile/update', 'UserController@updateUser')->name('user-update');
+    Route::post('/user/change-password', 'UserController@setUserPassword')->name('user-password-update');
     
 });
 
@@ -55,9 +58,7 @@ Route::get('/about', function () {
     return view('frontend/home/about');
 });
 
-Route::get('/services', function () {
-    return view('frontend/home/services');
-});
+Route::get('/services', 'Service_controller@frontEndService');
 
 Route::get('/contact_page', function () {
     return view('frontend/home/contact');

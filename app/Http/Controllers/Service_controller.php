@@ -6,9 +6,17 @@ use Illuminate\Http\Request;
 use App\services;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Service_controller extends Controller
 {
+
+    public function frontEndService(){
+
+        $services = services::orderBy('id', 'desc')->paginate(15);
+
+        return view('frontend.service.services', compact('services'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,17 +49,16 @@ class Service_controller extends Controller
     {
         if ($request->hasFile('service_image')) {
             if ($request->file('service_image')->isValid()) {
-                // $image = $request->service_image;
-                // $originalName=$image->getClientOriginalName();
-                // $randomNumber=rand(0,99999999999);
-                // $image_name=$randomNumber.$originalName; 
-                $uploadPath = "public/uploads/images/";
-                $image_name = md5(date("Y:m:d:h:i:s"));
-                $request->service_image->storeAs($uploadPath, $image_name . "." . $request->file('service_image')->getClientOriginalExtension());
-                $url = Storage::url($uploadPath . $image_name . "." . $request->file('service_image')->getClientOriginalExtension());
+                $file                   = $request->file('service_image');
+                $thumbNameTmp           = md5_file($file->getRealPath());
+                $extension              = $file->getClientOriginalExtension();
+                $filename               = 'image-'.$thumbNameTmp.'_'.time().'.'.$extension;
+                $path                   = 'uploads/services/';
+                $url                    = $file->move($path, $filename);
                 services::create([
                     'service_name' => $request->service_name,
-                    'service_image' => $url,
+                    'slug' => Str::kebab($request->service_name),
+                    'service_image' => $path.''.$filename,
                     'title' => $request->title,
                     'content' => $request->content,
 
@@ -61,6 +68,7 @@ class Service_controller extends Controller
         } else {
             services::create([
                 'service_name' => $request->service_name,
+                'slug' => Str::kebab($request->service_name),
                 'title' => $request->title,
                 'content' => $request->content,
 
@@ -101,15 +109,19 @@ class Service_controller extends Controller
         $updateData = services::findorfail($id);
         if ($request->hasFile('service_image')) {
             if ($request->file('service_image')->isValid()) {
-                $uploadPath = "public/uploads/images/";
-                $image_name = md5(date("Y:m:d:h:i:s"));
-                $request->service_image->storeAs($uploadPath, $image_name . "." . $request->file('service_image')->getClientOriginalExtension());
-                $url = Storage::url($uploadPath . $image_name . "." . $request->file('service_image')->getClientOriginalExtension());
+                $file                   = $request->file('service_image');
+                $thumbNameTmp           = md5_file($file->getRealPath());
+                $extension              = $file->getClientOriginalExtension();
+                $filename               = 'image-'.$thumbNameTmp.'_'.time().'.'.$extension;
+                $path                   = 'uploads/services/';
+                $url                    = $file->move($path, $filename); Storage::url($uploadPath . $image_name . "." . $request->file('service_image')->getClientOriginalExtension());
+
                 $updateData->update([
                     'service_name' => $request->service_name,
-                    'service_image' => $url,
+                    'slug' => Str::kebab($request->service_name),
+                    'service_image' => $path.''.$filename,
                     'title' => $request->title,
-                    'content' => $request->content
+                    'content' => $request->content,
 
                 ]);
                 $update_confirm_msg = 1;
@@ -118,7 +130,7 @@ class Service_controller extends Controller
         } else {
             $updateData->update($request->all());
             $update_confirm_msg = 1;
-            return redirect('services')->with("update_confirm_msg", $update_confirm_msg);
+            return redirect()->back()->with("update_confirm_msg", $update_confirm_msg);
         }
 
         // $newData = $request->all();
@@ -139,6 +151,6 @@ class Service_controller extends Controller
         $deleteData = services::findorfail($id);
         $deleteData->delete($deleteData);
         $delete_confirm_msg = 1;
-        return redirect('services')->with("delete_confirm_msg", $delete_confirm_msg);
+        return redirect()->back()->with("delete_confirm_msg", $delete_confirm_msg);
     }
 }

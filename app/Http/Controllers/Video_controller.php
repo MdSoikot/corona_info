@@ -122,7 +122,7 @@ class Video_controller extends Controller
                 'video_details' => $request->video_details
 
             ]);
-            return redirect()->back()->with('update_confirm_msg', 'success');
+            return redirect()->back()->with('update_confirm_msg', 1);
         }
     }
 
@@ -134,6 +134,9 @@ class Video_controller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $video = important_video::find($id);
+        $video->delete();
+
+        return redirect()->back()->with('delete_confirm_msg', 1);
     }
 }

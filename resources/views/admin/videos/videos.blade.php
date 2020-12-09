@@ -119,6 +119,39 @@
                                   </div>
                               </div>
 
+                              <div id="deleteModal{{ $item->id }}" class="modal fade">
+                                <div class="modal-dialog modal-confirm">
+                                    <div class="modal-content" style="width: 70%!important;text-align:center">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Do you really want to delete these records? This process cannot
+                                                be undone.</p>
+                                        </div>
+                                        <div class="modal-footer">
+
+                                            <form action="{{ route('videos.destroy', $item->id) }}" method="POST">
+                                                {{ method_field('DELETE') }}
+                                                @csrf
+
+                                                <div class="col-sm-12 d-flex justify-content-center">
+                                                    <button type="button" class="btn btn-info" data-dismiss="modal"
+                                                        style="margin-right: 10px">Cancel</button>
+
+                                                    <button class="btn btn-danger" type="submit">Delete</button>
+
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                                 
 
                                 @if (Session::has('delete_confirm_msg'))

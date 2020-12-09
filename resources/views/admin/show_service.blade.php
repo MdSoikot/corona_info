@@ -32,7 +32,6 @@
                                 <th>Service Name</th>
                                 <th>Title</th>
                                 <th>Service Image</th>
-                                <th>Content</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -45,11 +44,8 @@
                                     <td>{{ $item->title }}</td>
                                     <td>
 
-                                        <img src="<?php echo asset($item->service_image); ?>" style="width: 50px;
+                                        <img src="{{asset($item->service_image)}}" style="width: 50px;
                                         height: 60px;">
-                                    </td>
-                                    <td>
-                                        {!! html_entity_decode($item->content) !!}
                                     </td>
 
                                     <td>
@@ -104,7 +100,9 @@
                                                             <div class="col-md-12 form-group">
                                                                 <label>Content</label>
                                                                 <textarea id="mytextarea"
-                                                                    name="content">Hello, World!</textarea>
+                                                                    name="content">
+                                                                    {{$item->content}}
+                                                                </textarea>
                                                             </div>
 
 
