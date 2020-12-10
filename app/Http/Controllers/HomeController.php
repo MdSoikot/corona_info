@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\corona_update_ban;
+use App\important_video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\services;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    
 
     /**
      * Show the application dashboard.
@@ -23,6 +19,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $infected_update = DB::table('corona_update_bans')->where('case','new affected')->orderBy('created_at', 'DESC')->first();
+        $death_update = DB::table('corona_update_bans')->where('case','death')->orderBy('created_at', 'DESC')->first();
+        $cure_update = DB::table('corona_update_bans')->where('case','cure')->orderBy('created_at', 'DESC')->first();
+        $test_update = DB::table('corona_update_bans')->where('case','test')->orderBy('created_at', 'DESC')->first();
+        $video_Data=important_video::orderBy('id', 'desc')->take(6)->get();
+
+        $services = services::orderBy('id', 'desc')->take(6)->get();
+
+
+        return view('frontend.home.index', compact('infected_update','death_update','cure_update','test_update','video_Data', 'services'));
     }
 }

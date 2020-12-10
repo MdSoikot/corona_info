@@ -135,18 +135,18 @@
             <div class="counter-item">
               <h3>
                 @if ($infected_update)
-                  <span class="odometer" data-count="25">{{$infected_update->today}}</span>
+                  <span class="odometer" data-count="{{$infected_update->today}}">{{$infected_update->today}}</span>
                 @else
-                  <span class="odometer" data-count="25">00</span>
+                  <span class="odometer" data-count="00">00</span>
                 @endif
               </h3>
               <p>New Affected</p>
 
               <h3>
                 @if ($infected_update)
-                  <span class="odometer" data-count="25">{{$infected_update->total}}</span>
+                  <span class="odometer" data-count="{{$infected_update->total}}">{{$infected_update->total}}</span>
                 @else
-                  <span class="odometer" data-count="25">00</span>
+                  <span class="odometer" data-count="00">00</span>
                 @endif
               </h3>
               <p>Total</p>
@@ -158,18 +158,18 @@
             <div class="counter-item">
               <h3>
                 @if ($death_update)
-                  <span class="odometer" data-count="25">{{$death_update->today}}</span>
+                  <span class="odometer" data-count="{{$death_update->today}}">{{$death_update->today}}</span>
                 @else
-                  <span class="odometer" data-count="25">00</span>
+                  <span class="odometer" data-count="00">00</span>
                 @endif
               </h3>
               <p>New Death</p>
 
               <h3>
                 @if ($death_update)
-                  <span class="odometer" data-count="25">{{$death_update->total}}</span>
+                  <span class="odometer" data-count="{{$death_update->total}}">{{$death_update->total}}</span>
                 @else
-                  <span class="odometer" data-count="25">00</span>
+                  <span class="odometer" data-count="00">00</span>
                 @endif
               </h3>
               <p>Total</p>
@@ -181,18 +181,18 @@
             <div class="counter-item">
               <h3>
                 @if ($cure_update)
-                  <span class="odometer" data-count="25">{{$cure_update->today}}</span>
+                  <span class="odometer" data-count="{{$cure_update->today}}">{{$cure_update->today}}</span>
                 @else
-                  <span class="odometer" data-count="25">00</span>
+                  <span class="odometer" data-count="00">00</span>
                 @endif
               </h3>
               <p>Cure</p>
 
               <h3>
                 @if ($cure_update)
-                  <span class="odometer" data-count="25">{{$cure_update->total}}</span>
+                  <span class="odometer" data-count="{{$cure_update->total}}">{{$cure_update->total}}</span>
                 @else
-                  <span class="odometer" data-count="25">00</span>
+                  <span class="odometer" data-count="00">00</span>
                 @endif
               </h3>
               <p>Total</p>
@@ -204,18 +204,18 @@
             <div class="counter-item">
               <h3>
                 @if ($test_update)
-                  <span class="odometer" data-count="25">{{$test_update->today}}</span>
+                  <span class="odometer" data-count="{{$test_update->today}}">{{$test_update->today}}</span>
                 @else
-                  <span class="odometer" data-count="25">00</span>
+                  <span class="odometer" data-count="00">00</span>
                 @endif
               </h3>
               <p>Test</p>
 
               <h3>
                 @if ($test_update)
-                  <span class="odometer" data-count="25">{{$test_update->total}}</span>
+                  <span class="odometer" data-count="{{$test_update->total}}">{{$test_update->total}}</span>
                 @else
-                  <span class="odometer" data-count="25">00</span>
+                  <span class="odometer" data-count="00">00</span>
                 @endif
               </h3>
               <p>Total</p>

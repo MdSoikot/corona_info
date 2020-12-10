@@ -27,7 +27,7 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                            <form action={{url("add_corona_update")}} method="POST" class="form form-horizontal">
+                            <form action={{route("add_corona_update")}} method="POST" class="form form-horizontal">
                                 @csrf
                                     <div class="form-body">
                                         <div class="row">

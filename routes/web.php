@@ -30,10 +30,8 @@ Route::middleware('auth')->group(function () {
         Route::get('add_slider', function () {
             return view('admin/add_slider');
         });
-        Route::get('corona_update', function () {
-            return view('admin/corona_update');
-        });
-        Route::post('/add_corona_update', 'Corona_update_controller@store')->name("add_corona_update");
+        Route::get('corona_update', 'corona_update_controller@create');
+        Route::post('/add_corona_update', 'corona_update_controller@store')->name("add_corona_update");
         Route::resource('/services', 'Service_controller');
         Route::resource('/videos', 'Video_controller');
     
@@ -52,7 +50,7 @@ Route::middleware('auth')->group(function () {
 Auth::routes();
 
 
-Route::get('/', 'Corona_update_controller@index')->name("user_homepage");
+Route::get('/', 'HomeController@index')->name("user_homepage");
 
 Route::get('/about', function () {
     return view('frontend/home/about');
