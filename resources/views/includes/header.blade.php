@@ -82,12 +82,14 @@
                     <li class="nav-item">
                         <a  href="{{ url('/') }}" class="nav-link">Home</a>
                     </li>
-                     
-                      <li class="nav-item">
-                          <a  href="{{ url('about') }}" class="nav-link">About</a>
-                      </li>
-                      <li class="nav-item">
+                    <li class="nav-item">
+                        <a  href="{{ url('about') }}" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ url('services') }}" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('news') }}" class="nav-link">News</a>
                     </li>
                     
                     <li class="nav-item">

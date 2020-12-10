@@ -43,31 +43,13 @@
                     <a href="#">{{$service->service_name}}</a>
                 </h3>
                 <p>{{$service->title}}</p>
-                <a class="services-btn" href="#">Read More</a>
+                <a class="services-btn" href="{{url('/service/'.$service->slug)}}">Read More</a>
             </div>
         </div>
         @endforeach
 
       </div>
-      <div class="pagination-area">
-          <ul>
-              <li>
-                  <a href="#">Prev</a>
-              </li>
-              <li>
-                  <a class="active" href="#">1</a>
-              </li>
-              <li>
-                  <a href="#">2</a>
-              </li>
-              <li>
-                  <a href="#">3</a>
-              </li>
-              <li>
-                  <a href="#">Next</a>
-              </li>
-          </ul>
-      </div>
+      {{$services->links()}}
   </div>
 </section>
 <!-- End Services -->

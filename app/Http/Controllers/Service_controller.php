@@ -17,6 +17,13 @@ class Service_controller extends Controller
 
         return view('frontend.service.services', compact('services'));
     }
+
+    public function frontEndSingleService($slug){
+
+        $service = services::where('slug', $slug)->first();
+
+        return view('frontend.service.singleService', compact('service'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -125,7 +132,7 @@ class Service_controller extends Controller
 
                 ]);
                 $update_confirm_msg = 1;
-                return redirect('services')->with("update_confirm_msg", $update_confirm_msg);
+                return redirect()->back()->with("update_confirm_msg", $update_confirm_msg);
             }
         } else {
             $updateData->update($request->all());

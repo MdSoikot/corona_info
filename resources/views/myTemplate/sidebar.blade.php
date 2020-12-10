@@ -59,7 +59,6 @@
                         <i data-feather="home" width="20"></i>
                         <span>Videos</span>
                     </a>
-
                     <ul class="submenu ">
 
                         <li>
@@ -71,7 +70,22 @@
 
 
                     </ul>
+                </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="papper" width="20"></i>
+                        <span>News</span>
+                    </a>
+                    <ul class="submenu ">
 
+                        <li>
+                            <a href="{{url("/admin/news/create")}}">Add News</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/admin/news')}}">News List</a>
+                        </li>
+
+                    </ul>
                 </li>
 
 

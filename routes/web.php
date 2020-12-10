@@ -34,6 +34,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/add_corona_update', 'corona_update_controller@store')->name("add_corona_update");
         Route::resource('/services', 'Service_controller');
         Route::resource('/videos', 'Video_controller');
+        Route::get('news', 'NewsController@index');
+        Route::get('news/create', 'NewsController@create');
+        Route::post('news/store', 'NewsController@store')->name('news.store');
+        Route::patch('news/{id}/update', 'NewsController@update')->name('news.update');
+        Route::delete('news/{id}/delete', 'NewsController@destroy')->name('news.destroy');
     
         Route::get('add_service', function () {
             return view('admin/add_service');
@@ -51,12 +56,15 @@ Auth::routes();
 
 
 Route::get('/', 'HomeController@index')->name("user_homepage");
+Route::get('/news', 'NewsController@frontendNews');
+Route::get('/news/{slug}', 'NewsController@frontendSingleNews');
 
 Route::get('/about', function () {
     return view('frontend/home/about');
 });
 
 Route::get('/services', 'Service_controller@frontEndService');
+Route::get('/service/{slug}', 'Service_controller@frontEndSingleService');
 
 Route::get('/contact_page', function () {
     return view('frontend/home/contact');

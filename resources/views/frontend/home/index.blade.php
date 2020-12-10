@@ -84,36 +84,17 @@
 
             <div class="col-lg-3">
                 <div class="logo-text">
-                    <h3>Company Who Trust Us</h3>
+                    <h3>Latest Corona News</h3>
                 </div>
             </div>
 
             <div class="col-lg-9">
                 <div class="logo-slider owl-theme owl-carousel">
-
-                    <div class="logo-item">
-                        <img src="{{asset('assets/img/logo/logo1.png')}}" alt="Logo">
+                  @foreach ($latestNews as $news)
+                    <div class="logo-item text-left">
+                      <h5><a href="{{url('/news/'.$news->slug)}}" class="text-dark">{{$news->title}}</a></h5>
                     </div>
-
-                    <div class="logo-item">
-                        <img src="{{asset('assets/img/logo/logo2.png')}}" alt="Logo">
-                    </div>
-
-                    <div class="logo-item">
-                        <img src="{{asset('assets/img/logo/logo3.png')}}" alt="Logo">
-                    </div>
-
-                    <div class="logo-item">
-                        <img src="{{asset('assets/img/logo/logo4.png')}}" alt="Logo">
-                    </div>
-
-                    <div class="logo-item">
-                        <img src="{{asset('assets/img/logo/logo5.png')}}" alt="Logo">
-                    </div>
-
-                    <div class="logo-item">
-                        <img src="{{asset('assets/img/logo/logo1.png')}}" alt="Logo">
-                    </div>
+                  @endforeach
 
                 </div>
             </div>
@@ -228,6 +209,130 @@
 </div>
 <!-- End Counter -->
 
+<!-- Testimonials -->
+<section class="testimonials-area ptb-100">
+  <div class="container">
+
+  </div>
+</section>
+<!-- End Testimonials -->
+
+<!-- Work -->
+<section class="work-area ptb-100">
+  <div class="container">
+
+      <div class="section-title">
+          <div class="row align-items-center">
+              <div class="col-lg-6">
+                  <h2>Service And Information</h2>
+              </div>
+              <div class="col-lg-6">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis libero facilis consequatur deleniti, ipsa provident? Culpa tenetur incidunt reprehenderit qui a voluptas perferendis officiis</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <div class="work-item">
+            <ul class="align-items-center">
+                <li>
+                    <i class="flaticon-medal-of-award"></i>
+                </li>
+                <li>
+                    <h3>Great Efficiency</h3>
+                    <p>Lorem ipsum dolor sit ame etyt, consetetur sadips</p>
+                </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+          <div class="work-item">
+              <ul class="align-items-center">
+                  <li>
+                      <i class="flaticon-evaluate"></i>
+                  </li>
+                  <li>
+                      <h3>Project Analysis & Budget</h3>
+                      <p>Lorem ipsum dolor sit ame etyt, consetetur sadips</p>
+                  </li>
+              </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+          <div class="work-item">
+              <ul class="align-items-center">
+                  <li>
+                      <i class="flaticon-dollars-money-bag-with-a-clock"></i>
+                  </li>
+                  <li>
+                      <h3>Finance Planning</h3>
+                      <p>Lorem ipsum dolor sit ame etyt, consetetur sadips</p>
+                  </li>
+              </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+          <div class="work-item">
+              <ul class="align-items-center">
+                  <li>
+                      <i class="flaticon-trend"></i>
+                  </li>
+                  <li>
+                      <h3>Growing Success</h3>
+                      <p>Lorem ipsum dolor sit ame etyt, consetetur sadips</p>
+                  </li>
+              </ul>
+          </div>
+        </div>
+        
+      
+      
+      
+
+      </div>
+
+  </div>
+</section>
+<!-- End Work -->
+
+<!-- Projects -->
+<section class="projects-area section-overlay pt-100 pb-70">
+  <div class="container">
+
+      <div class="section-title">
+          <div class="row align-items-center">
+              <div class="col-lg-6">
+                  <span class="sub-title">Videos</span>
+                  <h2>Some Of Our <span>Videos</span> Where We Achive Great Success</h2>
+              </div>
+              <div class="col-lg-6">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis libero facilis consequatur deleniti, ipsa provident? Culpa tenetur incidunt reprehenderit qui a voluptas perferendis officiis</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+        @foreach ($video_Data as $video)
+          <div class="col-sm-6 col-lg-4">
+            <div class="projects-item card-overlay">
+              <img src=" {{asset($video->video_thumbnail)}} " alt="Projects">
+              <div class="inner">
+                <h3>
+                  <a href=" {{$video->video_link}} " target="_blank"> {{$video->video_details}} </a>
+                </h3>
+              </div>
+            </div>
+          </div>
+        @endforeach  
+        
+
+      </div>
+
+  </div>
+</section>
+<!-- End Projects -->
+
 
 <!-- Services -->
 <section class="services-area pt-100 pb-70">
@@ -254,7 +359,7 @@
                         <a href="#">{{$service->service_name}}</a>
                     </h3>
                     <p>{{$service->title}}</p>
-                    <a class="services-btn" href="#">Read More</a>
+                    <a class="services-btn" href="{{url('/service/'.$service->slug)}}">Read More</a>
                 </div>
             </div>
           @endforeach
@@ -267,42 +372,7 @@
 <!-- End Services -->
 
 
-<!-- Projects -->
-<section class="projects-area section-overlay pt-100 pb-70">
-    <div class="container">
 
-        <div class="section-title">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <span class="sub-title">Videos</span>
-                    <h2>Some Of Our <span>Videos</span> Where We Achive Great Success</h2>
-                </div>
-                <div class="col-lg-6">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis libero facilis consequatur deleniti, ipsa provident? Culpa tenetur incidunt reprehenderit qui a voluptas perferendis officiis</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-          @foreach ($video_Data as $video)
-            <div class="col-sm-6 col-lg-4">
-              <div class="projects-item card-overlay">
-                <img src=" {{asset($video->video_thumbnail)}} " alt="Projects">
-                <div class="inner">
-                  <h3>
-                    <a href=" {{$video->video_link}} " target="_blank"> {{$video->video_details}} </a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-          @endforeach  
-          
-
-        </div>
-
-    </div>
-</section>
-<!-- End Projects -->
 
 
 

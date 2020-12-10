@@ -7,6 +7,7 @@ use App\important_video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\services;
+use App\News;
 
 class HomeController extends Controller
 {
@@ -26,8 +27,9 @@ class HomeController extends Controller
         $video_Data=important_video::orderBy('id', 'desc')->take(6)->get();
 
         $services = services::orderBy('id', 'desc')->take(6)->get();
+        $latestNews = News::orderBy('id', 'desc')->take(5)->get();
 
 
-        return view('frontend.home.index', compact('infected_update','death_update','cure_update','test_update','video_Data', 'services'));
+        return view('frontend.home.index', compact('infected_update','death_update','cure_update','test_update','video_Data', 'services', 'latestNews'));
     }
 }
