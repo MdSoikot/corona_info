@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/add_corona_update', 'corona_update_controller@store')->name("add_corona_update");
         Route::resource('/services', 'Service_controller');
         Route::resource('/videos', 'Video_controller');
+        Route::resource('/ambulance', 'AmbulanceServiceController');
+        Route::get('/ambulance-rent', 'AmbulanceServiceController@ambulanceRentList');
         Route::get('news', 'NewsController@index');
         Route::get('news/create', 'NewsController@create');
         Route::post('news/store', 'NewsController@store')->name('news.store');
@@ -56,7 +58,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/profile', 'UserController@userProfile');
     Route::post('/user/profile/update', 'UserController@updateUser')->name('user-update');
     Route::post('/user/change-password', 'UserController@setUserPassword')->name('user-password-update');
-    
+    Route::get('/ambulance', 'AmbulanceServiceController@frontendAmbulanceList');
+    Route::get('/ambulance/{district}', 'AmbulanceServiceController@frontendGetAmbulance');
+
+    Route::resource('/ambulance-rent', 'AmbulanceRentController');
 });
 
 
