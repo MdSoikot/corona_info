@@ -144,7 +144,7 @@
           <div class="col-sm-6 col-lg-3 card-overlay">
             <div class="counter-item">
               <h3>
-                @if ($death_update)
+                @if ($death_update) 
                   <span class="odometer" data-count="{{$death_update->today}}">{{$death_update->today}}</span>
                 @else
                   <span class="odometer" data-count="00">00</span>
@@ -228,59 +228,29 @@
           </div>
       </div>
 
+          
       <div class="row">
+      @foreach ($info_services as $item)
+
         <div class="col-lg-6 mb-4">
           <div class="work-item">
+          <a href="{{url('info_service/'.$item->slug)}}">
             <ul class="align-items-center">
                 <li>
                     <i class="flaticon-medal-of-award"></i>
                 </li>
                 <li>
-                    <h3>Great Efficiency</h3>
-                    <p>Lorem ipsum dolor sit ame etyt, consetetur sadips</p>
+                    <h3>{{$item->service_name}}</h3>
+                    <p>{{$item->title}}</p>
                 </li>
             </ul>
+            </a>
           </div>
         </div>
-        <div class="col-lg-6 mb-4">
-          <div class="work-item">
-              <ul class="align-items-center">
-                  <li>
-                      <i class="flaticon-evaluate"></i>
-                  </li>
-                  <li>
-                      <h3>Project Analysis & Budget</h3>
-                      <p>Lorem ipsum dolor sit ame etyt, consetetur sadips</p>
-                  </li>
-              </ul>
-          </div>
-        </div>
-        <div class="col-lg-6 mb-4">
-          <div class="work-item">
-              <ul class="align-items-center">
-                  <li>
-                      <i class="flaticon-dollars-money-bag-with-a-clock"></i>
-                  </li>
-                  <li>
-                      <h3>Finance Planning</h3>
-                      <p>Lorem ipsum dolor sit ame etyt, consetetur sadips</p>
-                  </li>
-              </ul>
-          </div>
-        </div>
-        <div class="col-lg-6 mb-4">
-          <div class="work-item">
-              <ul class="align-items-center">
-                  <li>
-                      <i class="flaticon-trend"></i>
-                  </li>
-                  <li>
-                      <h3>Growing Success</h3>
-                      <p>Lorem ipsum dolor sit ame etyt, consetetur sadips</p>
-                  </li>
-              </ul>
-          </div>
-        </div>
+      @endforeach
+
+
+   
         
       
       

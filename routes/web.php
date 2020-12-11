@@ -24,9 +24,11 @@ Route::post('front_end_logout', 'Auth\LoginController@front_end_logout')->name("
 Route::middleware('auth')->group(function () {
 
     Route::group(['prefix'=>'admin'], function(){
-        Route::get('homepage', function () {
-            return view('admin/homepage');
-        });
+            // Route::get('homepage', function () {
+            //     return view('admin/homepage');
+            // });
+        Route::resource('/homepage', 'Dashboard_controller');
+
         Route::get('add_slider', function () {
             return view('admin/add_slider');
         });
@@ -41,6 +43,12 @@ Route::middleware('auth')->group(function () {
         Route::post('news/store', 'NewsController@store')->name('news.store');
         Route::patch('news/{id}/update', 'NewsController@update')->name('news.update');
         Route::delete('news/{id}/delete', 'NewsController@destroy')->name('news.destroy');
+
+        Route::get('info', 'Info_services_controller@index');
+        Route::get('info/create', 'Info_services_controller@create');
+        Route::post('info/store', 'Info_services_controller@store')->name('info.store');
+        Route::patch('info/{id}/update', 'Info_services_controller@update')->name('info.update');
+        Route::delete('info/{id}/delete', 'Info_services_controller@destroy')->name('info.destroy');
     
         Route::get('add_service', function () {
             return view('admin/add_service');
@@ -70,6 +78,8 @@ Route::get('/about', function () {
 
 Route::get('/services', 'Service_controller@frontEndService');
 Route::get('/service/{slug}', 'Service_controller@frontEndSingleService');
+Route::get('/info_service/{slug}', 'Info_services_controller@frontEndSingleInfoService');
+
 
 Route::get('/contact', 'contact_controller@create');
 Route::post('/contact', 'contact_controller@store')->name('contact.store');
