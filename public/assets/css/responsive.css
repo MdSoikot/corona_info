@@ -613,7 +613,7 @@
   /*-- Navbar --*/
   .side-nav {
     position: absolute;
-    right: 70px;
+    right: 100px;
     top: 14px;
   }
   .side-nav .nav-search #search-btn {

@@ -8,6 +8,12 @@
     .projects-item img{
       height: 100%;
     }
+    .information-service h2 {
+        color: #022E6B !important;
+    }
+    .information-service p {
+        color: #444 !important;
+    }
   </style>
 @endsection
 
@@ -209,16 +215,9 @@
 </div>
 <!-- End Counter -->
 
-<!-- Testimonials -->
-<section class="testimonials-area ptb-100">
-  <div class="container">
-
-  </div>
-</section>
-<!-- End Testimonials -->
 
 <!-- Work -->
-<section class="work-area ptb-100">
+<section class="information-service work-area ptb-100">
   <div class="container">
 
       <div class="section-title">
