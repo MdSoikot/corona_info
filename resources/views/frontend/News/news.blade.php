@@ -1,5 +1,15 @@
 @extends('layouts.main')
 
+
+@section('header-style')
+    <style>
+        .page-title-area {
+            background-position: top center;
+        }
+    </style>
+@endsection
+
+
 @section('content')
   
 <!-- Page Title -->

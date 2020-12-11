@@ -3,13 +3,13 @@
   <div class="container">
       <div class="row">
 
-          <div class="col-sm-6 col-lg-3">
+          <div class="col-sm-6 col-lg-6">
               <div class="footer-item">
                   <div class="footer-logo">
                       <a class="footer-inva" href="index.html">
                           <img src="{{asset('assets/img/logo-two.png')}}" alt="Logo">
                       </a>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur quaerat quo unde</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus temporibus beatae expedita numquam ut laboriosam in! Nesciunt facere quam aliquam cupiditate natus error mollitia, magnam vel doloremque minima maiores magni?</p>
                       <ul>
                           <li>
                               <a href="#" target="_blank">
@@ -48,39 +48,20 @@
                       <ul>
                           <li>
                               <i class='bx bx-chevron-right' ></i>
-                              <a href="about.html">About</a>
+                              <a href="{{url('/about')}}">About</a>
                           </li>
                           <li>
                               <i class='bx bx-chevron-right' ></i>
-                              <a href="services.html">Services</a>
+                              <a href="{{url('/service')}}">Services</a>
                           </li>
                           <li>
                               <i class='bx bx-chevron-right' ></i>
-                              <a href="projects.html">Projects</a>
+                              <a href="{{url('/news')}}">Projects</a>
                           </li>
                           <li>
                               <i class='bx bx-chevron-right' ></i>
-                              <a href="blog.html">Blog</a>
+                              <a href="{{url('/contact')}}">Contact</a>
                           </li>
-                          <li>
-                              <i class='bx bx-chevron-right' ></i>
-                              <a href="faq.html">FAQ</a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-sm-6 col-lg-3">
-              <div class="footer-item">
-                  <div class="footer-hours">
-                      <h3>Open Hours</h3>
-                      <ul>
-                          <li>Monday <span>8:00 - 21:00</span></li>
-                          <li>Tuesday <span>8:00 - 21:00</span></li>
-                          <li>Wednesday <span>8:00 - 21:00</span></li>
-                          <li>Thursday <span>8:00 - 21:00</span></li>
-                          <li>Sunday <span>8:00 - 21:00</span></li>
                       </ul>
                   </div>
               </div>
@@ -93,7 +74,7 @@
                       <ul>
                           <li>
                               <i class='bx bxs-location-plus'></i>
-                              <span>113 Inva, White House, New Jercy, USA</span>
+                              <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
                           </li>
                           <li>
                               <i class='bx bxs-phone-call'></i>
@@ -102,8 +83,8 @@
                           </li>
                           <li>
                               <i class='bx bxs-paper-plane'></i>
-                              <a href="mailto:hello@inva.com">hello@inva.com</a>
-                              <a href="mailto:info@inva.com">info@inva.com</a>
+                              <a href="mailto:corona@info.com">corona@info.com</a>
+                              <a href="mailto:info@corona.com">info@corona.com</a>
                           </li>
                       </ul>
                   </div>

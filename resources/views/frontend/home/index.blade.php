@@ -21,16 +21,16 @@
   <!-- Banner -->
 <div class="banner-area">
     <div class="banner-slider owl-theme owl-carousel">
-
+      @foreach ($info_services as $item)
         <div class="overlay-banner">
             <div class="banner-item banner-bg-one">
                 <div class="d-table">
                     <div class="d-table-cell">
                         <div class="container">
                             <div class="banner-content">
-                                <h1>Most Trusted Company For Your Business</h1>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy when an unknown printer</p>
-                                <a class="common-btn" href="#">
+                                <h1>{{$item->service_name}}</h1>
+                                <p>{{$item->short_desc}}</p>
+                                <a class="common-btn" href="{{url('info_service/'.$item->slug)}}">
                                     Let's Start Now
                                     <span></span>
                                 </a>
@@ -40,8 +40,10 @@
                 </div>
             </div>
         </div>
+      @endforeach
+        
 
-        <div class="overlay-banner">
+        {{-- <div class="overlay-banner">
             <div class="banner-item banner-bg-two">
                 <div class="d-table">
                     <div class="d-table-cell">
@@ -77,7 +79,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         
     </div>
 </div>
@@ -241,7 +243,7 @@
                 </li>
                 <li>
                     <h3>{{$item->service_name}}</h3>
-                    <p>{{$item->title}}</p>
+                    <p>{{$item->short_desc}}</p>
                 </li>
             </ul>
             </a>

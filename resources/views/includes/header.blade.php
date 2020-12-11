@@ -8,15 +8,7 @@
                 <ul>
                   <li>
                     <i class='bx bx-mail-send'></i>
-                    <a href="mailto:hello@inva.com">hello@inva.com</a>
-                  </li>
-                  <li>
-                    <i class='bx bx-phone-call'></i>
-                    <a href="tel:+99084211703">+990-8421-1703</a>
-                  </li>
-                  <li>
-                    <i class='bx bx-time'></i>
-                    <span>Mon - Sat: 8:00 AM - 7:00 PM</span>
+                    <a href="mailto:hello@inva.com">corona@info.com</a>
                   </li>
                 </ul>
               </div>
