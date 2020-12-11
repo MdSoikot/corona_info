@@ -18,7 +18,7 @@ Route::get('forgot_password', function () {
 });
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::post('front_end_logout', 'Auth\LoginController@front_end_logout')->name("front_end_logout");
-Route::resource('/contact', 'contact_controller');
+
 
 
 Route::middleware('auth')->group(function () {
@@ -66,9 +66,8 @@ Route::get('/about', function () {
 Route::get('/services', 'Service_controller@frontEndService');
 Route::get('/service/{slug}', 'Service_controller@frontEndSingleService');
 
-Route::get('/contact_page', function () {
-    return view('frontend/home/contact');
-});
+Route::get('/contact', 'contact_controller@create');
+Route::post('/contact', 'contact_controller@store')->name('contact.store');
 Route::get('/important_video', function () {
     return view('users/important_video');
 });

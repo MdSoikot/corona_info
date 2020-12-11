@@ -42,7 +42,7 @@
               <div class="section-title">
                   <h2>Get In Touch</h2>
               </div>
-                <form action="{{route('contact.store')}}" method="POST" id="contactForm">
+                <form action="{{route('contact.store')}}" method="POST">
                   @csrf
                   <div class="row">
 

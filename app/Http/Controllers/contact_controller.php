@@ -24,7 +24,7 @@ class contact_controller extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.contact.contact');
     }
 
     /**

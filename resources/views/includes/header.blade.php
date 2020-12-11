@@ -93,7 +93,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a href="{{ url('contact_page') }}" class="nav-link">Contact</a>
+                        <a href="{{ url('contact') }}" class="nav-link">Contact</a>
                     </li>
                    
                   </ul>
