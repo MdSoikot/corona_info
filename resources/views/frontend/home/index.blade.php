@@ -237,7 +237,7 @@
 
         <div class="col-lg-6 mb-4">
           <div class="work-item">
-          <a href="{{url('info_service/'.$item->slug)}}">
+          <a href="{{url('info-service/'.$item->slug)}}">
             <ul class="align-items-center">
                 <li>
                     <i class="flaticon-medal-of-award"></i>
