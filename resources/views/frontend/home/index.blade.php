@@ -19,7 +19,7 @@
 
 @section('content')
   <!-- Banner -->
-  <div class="banner-area">
+<div class="banner-area">
     <div class="banner-slider owl-theme owl-carousel">
 
         <div class="overlay-banner">
@@ -225,9 +225,6 @@
               <div class="col-lg-6">
                   <h2>Service And Information</h2>
               </div>
-              <div class="col-lg-6">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis libero facilis consequatur deleniti, ipsa provident? Culpa tenetur incidunt reprehenderit qui a voluptas perferendis officiis</p>
-              </div>
           </div>
       </div>
 
@@ -273,10 +270,7 @@
           <div class="row align-items-center">
               <div class="col-lg-6">
                   <span class="sub-title">Videos</span>
-                  <h2>Some Of Our <span>Videos</span> Where We Achive Great Success</h2>
-              </div>
-              <div class="col-lg-6">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis libero facilis consequatur deleniti, ipsa provident? Culpa tenetur incidunt reprehenderit qui a voluptas perferendis officiis</p>
+                  <h2>Some Of Our <span>Videos</span></h2>
               </div>
           </div>
       </div>
@@ -311,10 +305,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <span class="sub-title">Our Services</span>
-                    <h2>The <span>Services</span> That We Provide For Our Ultimate Clients</h2>
-                </div>
-                <div class="col-lg-6">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis libero facilis consequatur deleniti, ipsa provident? Culpa tenetur incidunt reprehenderit qui a voluptas perferendis officiis</p>
+                    <h2>The <span>Services</span> That We Provide</h2>
                 </div>
             </div>
         </div>
