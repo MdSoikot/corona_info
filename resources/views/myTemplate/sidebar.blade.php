@@ -73,7 +73,7 @@
                 </li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i data-feather="papper" width="20"></i>
+                        <i data-feather="sidebar" width="20"></i>
                         <span>News</span>
                     </a>
                     <ul class="submenu ">
@@ -83,6 +83,25 @@
                         </li>
                         <li>
                             <a href="{{url('/admin/news')}}">News List</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="truck" width="20"></i>
+                        <span>Ambulance Service</span>
+                    </a>
+                    <ul class="submenu ">
+
+                        <li>
+                            <a href="{{url("/admin/ambulance/create")}}">Add Ambulance</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/admin/ambulance')}}">Ambulance List</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/admin/ambulance-rent')}}">Rent List</a>
                         </li>
 
                     </ul>
