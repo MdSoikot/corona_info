@@ -10,7 +10,7 @@
                     <nav aria-label="breadcrumb" class='breadcrumb-header'>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{'homepage'}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Add Service</li>
+                            <li class="breadcrumb-item active" aria-current="page">Create Information & Services</li>
                         </ol>
                     </nav>
                 </div>
@@ -23,11 +23,11 @@
                 <div class="col-md-12 col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Add Service</h4>
+                            <h4 class="card-title">Create Information & Services</h4>
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal" action="{{route("services.store")}}" method="POST" enctype="multipart/form-data">
+                                <form class="form form-horizontal" action="{{route("info.store")}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                      <div class="form-body">
                                         <div class="row">
@@ -38,16 +38,20 @@
                                             </div>
 
                                           
-                                            <div class="col-md-6 form-group">
-                                                <label>Title</label>
-                                                <input type="text" id="first-name" class="form-control" name="title">
-                                            </div>
+                                          
                                             
                                             <div class="col-md-6 form-group">
                                                 <label>Service Image</label>
-                                                <input type="file" id="first-name" class="form-control" name="service_image">
+                                                <input type="file" id="first-name" class="form-control" name="icon_image">
                                             </div>
+                                           
+                                            <div class="col-md-12 form-group">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlTextarea1">Short Description</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="short_desc"></textarea>
+                                                  </div>
 
+                                            </div>
                                             <div class="col-md-12 form-group">
                                                 <label>Content</label>
                                                 <textarea id="mytextarea" name="content"></textarea>

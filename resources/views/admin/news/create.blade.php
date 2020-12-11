@@ -44,7 +44,7 @@
 
                                             <div class="col-md-12 form-group">
                                                 <label>Content</label>
-                                                <textarea id="mytextarea" name="content">Hello, World!</textarea>
+                                                <textarea id="mytextarea" name="content"></textarea>
                                             </div>
                                           
 

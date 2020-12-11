@@ -73,6 +73,23 @@
                 </li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>Information & Services</span>
+                    </a>
+                    <ul class="submenu ">
+
+                        <li>
+                            <a href="{{url("/admin/info/create")}}">Add Information & Services</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/admin/info')}}">Show Information & Services</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
                         <i data-feather="papper" width="20"></i>
                         <span>News</span>
                     </a>
