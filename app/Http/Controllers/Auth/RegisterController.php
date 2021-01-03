@@ -22,6 +22,7 @@ class RegisterController extends Controller
     |
     */
 
+
     use RegistersUsers;
 
     /**
@@ -34,9 +35,10 @@ class RegisterController extends Controller
     {
         // dd(auth()->user()->role);
         if (auth()->user()->role=='admin'||auth()->user()->role=='backend_user')  {
-            return 'admin/login';
+            return '/admin/dashboard';
         }
-        return '/user_login';
+
+        return '/';
     }
     // protected $redirectTo = '/homepage';
     // protected $redirect_user = RouteServiceProvider::User_Homepage;  

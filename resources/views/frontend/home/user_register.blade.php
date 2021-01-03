@@ -63,10 +63,10 @@
 
                             </div>
                             <div class="text-center">
-                                <a href="#" class="common-btn">
+                                <button type="submit" class="common-btn">
                                     Sign Up
                                     <span></span>
-                                </a>
+                                </button>
                             </div>
                             <p>Already created an account? <a href="{{url("user_login")}}">Sign In</a></p>
 
