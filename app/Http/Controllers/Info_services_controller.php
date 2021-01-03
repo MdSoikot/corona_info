@@ -127,7 +127,7 @@ class Info_services_controller extends Controller
                 $extension              = $file->getClientOriginalExtension();
                 $filename               = 'image-'.$thumbNameTmp.'_'.time().'.'.$extension;
                 $path                   = 'uploads/info_services/';
-                $url                    = $file->move($path, $filename); Storage::url($uploadPath . $image_name . "." . $request->file('icon_image')->getClientOriginalExtension());
+                $url                    = $file->move($path, $filename);
 
                 $updateData->update([
                     'service_name' => $request->service_name,

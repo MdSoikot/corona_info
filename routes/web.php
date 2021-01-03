@@ -78,7 +78,7 @@ Route::get('/about', function () {
 
 Route::get('/services', 'Service_controller@frontEndService');
 Route::get('/service/{slug}', 'Service_controller@frontEndSingleService');
-Route::get('/info_service/{slug}', 'Info_services_controller@frontEndSingleInfoService');
+Route::get('/info-service/{slug}', 'Info_services_controller@frontEndSingleInfoService');
 
 
 Route::get('/contact', 'contact_controller@create');

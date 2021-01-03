@@ -73,6 +73,7 @@
                 </li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
+
                         <i data-feather="home" width="20"></i>
                         <span>Information & Services</span>
                     </a>
@@ -90,7 +91,14 @@
                 </li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
+
+                        <i data-feather="papper" width="20"></i>
+
                         <i data-feather="sidebar" width="20"></i>
+
+
+                        <i data-feather="sidebar" width="20"></i>
+
                         <span>News</span>
                     </a>
                     <ul class="submenu ">

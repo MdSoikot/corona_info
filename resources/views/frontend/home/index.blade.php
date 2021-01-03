@@ -123,8 +123,8 @@
           <div class="col-sm-6 col-lg-3 card-overlay">
             <div class="counter-item">
               <h3>
-                @if ($infected_update)
-                  <span class="odometer" data-count="{{$infected_update->today}}">{{$infected_update->today}}</span>
+                @if ($filtered)
+                  <span class="odometer" data-count="{{$filtered['NewConfirmed']}}">{{$filtered['NewConfirmed']}}</span>
                 @else
                   <span class="odometer" data-count="00">00</span>
                 @endif
@@ -133,7 +133,7 @@
 
               <h3>
                 @if ($infected_update)
-                  <span class="odometer" data-count="{{$infected_update->total}}">{{$infected_update->total}}</span>
+                  <span class="odometer" data-count="{{$filtered['TotalConfirmed']}}">{{$filtered['NewConfirmed']}}</span>
                 @else
                   <span class="odometer" data-count="00">00</span>
                 @endif
@@ -147,7 +147,7 @@
             <div class="counter-item">
               <h3>
                 @if ($death_update) 
-                  <span class="odometer" data-count="{{$death_update->today}}">{{$death_update->today}}</span>
+                  <span class="odometer" data-count="{{$filtered['NewDeaths']}}">{{$filtered['NewDeaths']}}</span>
                 @else
                   <span class="odometer" data-count="00">00</span>
                 @endif
@@ -156,7 +156,7 @@
 
               <h3>
                 @if ($death_update)
-                  <span class="odometer" data-count="{{$death_update->total}}">{{$death_update->total}}</span>
+                  <span class="odometer" data-count="{{$filtered['TotalDeaths']}}">{{$filtered['TotalDeaths']}}</span>
                 @else
                   <span class="odometer" data-count="00">00</span>
                 @endif
@@ -165,12 +165,11 @@
 
             </div>
           </div>
-
           <div class="col-sm-6 col-lg-3 card-overlay">
             <div class="counter-item">
               <h3>
-                @if ($cure_update)
-                  <span class="odometer" data-count="{{$cure_update->today}}">{{$cure_update->today}}</span>
+                @if ($death_update) 
+                  <span class="odometer" data-count="{{$filtered['NewRecovered']}}">{{$filtered['NewRecovered']}}</span>
                 @else
                   <span class="odometer" data-count="00">00</span>
                 @endif
@@ -178,8 +177,8 @@
               <p>Cure</p>
 
               <h3>
-                @if ($cure_update)
-                  <span class="odometer" data-count="{{$cure_update->total}}">{{$cure_update->total}}</span>
+                @if ($death_update)
+                  <span class="odometer" data-count="{{$filtered['TotalRecovered']}}">{{$filtered['TotalRecovered']}}</span>
                 @else
                   <span class="odometer" data-count="00">00</span>
                 @endif
@@ -189,6 +188,7 @@
             </div>
           </div>
 
+       
           <div class="col-sm-6 col-lg-3 card-overlay">
             <div class="counter-item">
               <h3>
@@ -236,7 +236,7 @@
 
         <div class="col-lg-6 mb-4">
           <div class="work-item">
-          <a href="{{url('info_service/'.$item->slug)}}">
+          <a href="{{url('info-service/'.$item->slug)}}">
             <ul class="align-items-center">
                 <li>
                     <i class="flaticon-medal-of-award"></i>
@@ -247,9 +247,27 @@
                 </li>
             </ul>
             </a>
+            
           </div>
         </div>
+        
       @endforeach
+      <div class="col-lg-6 mb-4">
+        <div class="work-item">
+        <a href="{{url('ambulance')}}">
+          <ul class="align-items-center">
+              <li>
+                  <i class="flaticon-medal-of-award"></i>
+              </li>
+              <li>
+                  <h3>Ambulance</h3>
+                  {{-- <p>{{$item->title}}</p> --}}
+              </li>
+          </ul>
+          </a>
+          
+        </div>
+      </div>
 
 
    

@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Http;
 use App\corona_update_ban;
 use App\important_video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\services;
 use App\info_services;
+use Illuminate\Support\Arr;
 
 use App\News;
 
@@ -33,7 +34,17 @@ class HomeController extends Controller
 
         $latestNews = News::orderBy('id', 'desc')->take(5)->get();
 
+        $response = Http::get('https://api.covid19api.com/summary');
+        
+        $data=$response->json();
+        $filtered = Arr::first($data['Countries'], function ($value, $key) {
+            if($value['Country'] == "Bangladesh"){
+                return $key;
+                }
+        });
 
-        return view('frontend.home.index', compact('infected_update','death_update','cure_update','test_update','video_Data', 'services', 'latestNews','info_services'));
+        // dd($filtered);
+
+        return view('frontend.home.index', compact('infected_update','death_update','cure_update','test_update','video_Data', 'services', 'latestNews','info_services','filtered'));
     }
 }
